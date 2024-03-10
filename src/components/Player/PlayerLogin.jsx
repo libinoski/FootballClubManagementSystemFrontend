@@ -5,9 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import CommonFooter from '../Common/CommonFooter';
 
-const AdminLogin = () => {
+const PlayerLogin = () => {
     const navigate = useNavigate();
-    const [loginData, setLoginData] = useState({ adminEmail: '', adminPassword: '' });
+    const [loginData, setLoginData] = useState({ playerEmail: '', playerPassword: '' });
     const [isLoading, setIsLoading] = useState(false);
     const [errorMessages, setErrorMessages] = useState({});
     const [showPassword, setShowPassword] = useState(false);
@@ -26,12 +26,11 @@ const AdminLogin = () => {
         setErrorMessages({});
 
         try {
-            const response = await axios.post('http://localhost:4040/api/admin/adminLogin', loginData);
+            const response = await axios.post('http://localhost:4040/api/player/playerLogin', loginData);
             if (response.status === 200) {
-                // alert(response.data.message);
-                sessionStorage.setItem('AdminId', response.data.data.admin.adminId);
+                sessionStorage.setItem('playerId', response.data.data.player.playerId);
                 sessionStorage.setItem('token', response.data.data.token);
-                navigate('/AdminViewProfile');
+                navigate('/playerViewProfile');
             }
         } catch (error) {
             if (error.response) {
@@ -63,20 +62,17 @@ const AdminLogin = () => {
         setShowPassword(!showPassword);
     };
 
-    // Define navigateToSignUp function here
     const navigateToSignUp = () => {
-        navigate('/adminRegistration'); // Change '/signup' to the path you use for your signup page
+        navigate('/playerRegistration');
     };
 
-
     const hasErrors = Object.keys(errorMessages).length > 0;
-
 
     return (
 <div>
     <nav className="navbar navbar-dark" style={{ background: '#f2f2f2' }}>
         <div className="container-fluid">
-            <span className="navbar-brand mb-0 h1 text-dark d-block mx-auto font-weight-bold" style={{ fontFamily: 'Arial, sans-serif' }}>Admin Login</span>
+            <span className="navbar-brand mb-0 h1 text-dark d-block mx-auto font-weight-bold" style={{ fontFamily: 'Arial, sans-serif' }}>Player Login</span>
         </div>
     </nav>
 
@@ -92,38 +88,40 @@ const AdminLogin = () => {
                 <h2 className="card-title text-center">Login</h2>
                 <form onSubmit={handleSubmit} noValidate>
                     <div className="mb-3">
-                        <label htmlFor="adminEmail" className="form-label">Email:</label>
+                        <label htmlFor="playerEmail" className="form-label">Email:</label>
                         <input
                             type="email"
-                            name="adminEmail"
-                            value={loginData.adminEmail}
+                            name="playerEmail"
+                            value={loginData.playerEmail}
                             onChange={handleInputChange}
-                            className={`form-control ${errorMessages.adminEmail ? 'is-invalid' : ''}`}
+                            className={`form-control ${errorMessages.playerEmail ? 'is-invalid' : ''}`}
                             required
                         />
-                        {errorMessages.adminEmail && <div className="invalid-feedback">{errorMessages.adminEmail}</div>}
+                        {errorMessages.playerEmail && <div className="invalid-feedback">{errorMessages.playerEmail}</div>}
                     </div>
 
                     <div className="mb-3">
-                        <label htmlFor="adminPassword" className="form-label">Password:</label>
+                        <label htmlFor="playerPassword" className="form-label">Password:</label>
                         <div className="input-group">
                             <input
                                 type={showPassword ? 'text' : 'password'}
-                                name="adminPassword"
-                                value={loginData.adminPassword}
+                                name="playerPassword"
+                                value={loginData.playerPassword}
                                 onChange={handleInputChange}
-                                className={`form-control ${errorMessages.adminPassword ? 'is-invalid' : ''}`}
+                                className={`form-control ${errorMessages.playerPassword ? 'is-invalid' : ''}`}
                                 required
                             />
                             <button type="button" onClick={togglePasswordVisibility} className="btn btn-outline-secondary">
                                 <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
                             </button>
-                            {errorMessages.adminPassword && <div className="invalid-feedback" style={{ display: 'block' }}>{errorMessages.adminPassword}</div>}
+                            {errorMessages.playerPassword && <div className="invalid-feedback" style={{ display: 'block' }}>{errorMessages.playerPassword}</div>}
                         </div>
                     </div>
 
                     <div className="text-center">
-                        <button type="submit" className={`btn btn-primary ${hasErrors ? 'btn-danger' : ''}`} disabled={isLoading} style={{ width: 'auto', background: 'linear-gradient(to right, #32CD32, #008000)', borderRadius: '8px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.3)', transition: 'all 0.3s ease' }}>
+                        <button type="submit" className={`btn btn-primary ${hasErrors ? 'btn-danger' : ''}`} disabled={isLoading} style={{
+                            width: 'auto', background: 'linear-gradient(to right, #32CD32, #008000)', borderRadius: '8px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.3)', transition: 'all 0.3s ease'
+                        }}>
                             {isLoading ? 'Logging in...' : 'Login'}
                         </button>
                     </div>
@@ -132,14 +130,7 @@ const AdminLogin = () => {
                 <div className="text-center mt-3">
                     <p>Don't have an account?</p>
                     <button onClick={navigateToSignUp} className="btn btn-primary rounded-pill" style={{
-                        background: 'linear-gradient(to right, #4169E1, #0000FF)',
-                        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.3)',
-                        borderRadius: '8px',
-                        border: 'none',
-                        color: '#fff',
-                        transition: 'all 0.3s ease',
-                        outline: 'none',
-                        width: '100%'
+                        width: '100%', background: 'linear-gradient(to right, #4169E1, #0000FF)', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.3)', borderRadius: '8px', border: 'none', color: '#fff', transition: 'all 0.3s ease', outline: 'none'
                     }}>
                         Sign up
                     </button>
@@ -151,10 +142,7 @@ const AdminLogin = () => {
     <CommonFooter/>
 </div>
 
-
-
-
     );
 };
 
-export default AdminLogin;
+export default PlayerLogin;

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfoCircle, faUsers, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faInstagram, faYoutube, faFacebook, faTelegram } from '@fortawesome/free-brands-svg-icons';
 
-const Footer = () => {
+const CommonFooter = () => {
   return (
     <footer className="py-5" style={{ background: 'linear-gradient(135deg, #ECE9E6 10%, #FFFFFF 100%)', borderTop: '5px solid #BDC3C7' }}>
       <div className="container">
@@ -51,4 +51,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default CommonFooter;

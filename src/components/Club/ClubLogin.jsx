@@ -5,9 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import CommonFooter from '../Common/CommonFooter';
 
-const AdminLogin = () => {
+const ClubLogin = () => {
     const navigate = useNavigate();
-    const [loginData, setLoginData] = useState({ adminEmail: '', adminPassword: '' });
+    const [loginData, setLoginData] = useState({ clubEmail: '', clubPassword: '' });
     const [isLoading, setIsLoading] = useState(false);
     const [errorMessages, setErrorMessages] = useState({});
     const [showPassword, setShowPassword] = useState(false);
@@ -26,12 +26,11 @@ const AdminLogin = () => {
         setErrorMessages({});
 
         try {
-            const response = await axios.post('http://localhost:4040/api/admin/adminLogin', loginData);
+            const response = await axios.post('http://localhost:4040/api/club/clubLogin', loginData);
             if (response.status === 200) {
-                // alert(response.data.message);
-                sessionStorage.setItem('AdminId', response.data.data.admin.adminId);
+                sessionStorage.setItem('clubId', response.data.data.club.clubId);
                 sessionStorage.setItem('token', response.data.data.token);
-                navigate('/AdminViewProfile');
+                navigate('/ClubViewProfile');
             }
         } catch (error) {
             if (error.response) {
@@ -63,20 +62,17 @@ const AdminLogin = () => {
         setShowPassword(!showPassword);
     };
 
-    // Define navigateToSignUp function here
     const navigateToSignUp = () => {
-        navigate('/adminRegistration'); // Change '/signup' to the path you use for your signup page
+        navigate('/ClubRegistration');
     };
 
-
     const hasErrors = Object.keys(errorMessages).length > 0;
-
 
     return (
 <div>
     <nav className="navbar navbar-dark" style={{ background: '#f2f2f2' }}>
         <div className="container-fluid">
-            <span className="navbar-brand mb-0 h1 text-dark d-block mx-auto font-weight-bold" style={{ fontFamily: 'Arial, sans-serif' }}>Admin Login</span>
+            <span className="navbar-brand mb-0 h1 text-dark d-block mx-auto font-weight-bold" style={{ fontFamily: 'Arial, sans-serif' }}>Club Login</span>
         </div>
     </nav>
 
@@ -92,33 +88,33 @@ const AdminLogin = () => {
                 <h2 className="card-title text-center">Login</h2>
                 <form onSubmit={handleSubmit} noValidate>
                     <div className="mb-3">
-                        <label htmlFor="adminEmail" className="form-label">Email:</label>
+                        <label htmlFor="clubEmail" className="form-label">Email:</label>
                         <input
                             type="email"
-                            name="adminEmail"
-                            value={loginData.adminEmail}
+                            name="clubEmail"
+                            value={loginData.clubEmail}
                             onChange={handleInputChange}
-                            className={`form-control ${errorMessages.adminEmail ? 'is-invalid' : ''}`}
+                            className={`form-control ${errorMessages.clubEmail ? 'is-invalid' : ''}`}
                             required
                         />
-                        {errorMessages.adminEmail && <div className="invalid-feedback">{errorMessages.adminEmail}</div>}
+                        {errorMessages.clubEmail && <div className="invalid-feedback">{errorMessages.clubEmail}</div>}
                     </div>
 
                     <div className="mb-3">
-                        <label htmlFor="adminPassword" className="form-label">Password:</label>
+                        <label htmlFor="clubPassword" className="form-label">Password:</label>
                         <div className="input-group">
                             <input
                                 type={showPassword ? 'text' : 'password'}
-                                name="adminPassword"
-                                value={loginData.adminPassword}
+                                name="clubPassword"
+                                value={loginData.clubPassword}
                                 onChange={handleInputChange}
-                                className={`form-control ${errorMessages.adminPassword ? 'is-invalid' : ''}`}
+                                className={`form-control ${errorMessages.clubPassword ? 'is-invalid' : ''}`}
                                 required
                             />
                             <button type="button" onClick={togglePasswordVisibility} className="btn btn-outline-secondary">
                                 <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
                             </button>
-                            {errorMessages.adminPassword && <div className="invalid-feedback" style={{ display: 'block' }}>{errorMessages.adminPassword}</div>}
+                            {errorMessages.clubPassword && <div className="invalid-feedback" style={{ display: 'block' }}>{errorMessages.clubPassword}</div>}
                         </div>
                     </div>
 
@@ -138,7 +134,6 @@ const AdminLogin = () => {
                         border: 'none',
                         color: '#fff',
                         transition: 'all 0.3s ease',
-                        outline: 'none',
                         width: '100%'
                     }}>
                         Sign up
@@ -151,10 +146,7 @@ const AdminLogin = () => {
     <CommonFooter/>
 </div>
 
-
-
-
     );
 };
 
-export default AdminLogin;
+export default ClubLogin;
