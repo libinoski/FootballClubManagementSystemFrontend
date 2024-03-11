@@ -9,7 +9,6 @@ const AdminRegistration = () => {
     const initialAdminData = {
         adminName: '',
         adminEmail: '',
-        adminAadhar: '',
         adminMobile: '',
         adminAddress: '',
         adminPassword: '',
@@ -140,10 +139,6 @@ const AdminRegistration = () => {
                     <div className="mb-3">
                         <input type="email" className={`form-control ${validationErrors.adminEmail ? 'is-invalid' : ''}`} name="adminEmail" value={adminData.adminEmail} onChange={handleInputChange} placeholder="Email *" required />
                         {validationErrors.adminEmail && <div className="invalid-feedback">{validationErrors.adminEmail}</div>}
-                    </div>
-                    <div className="mb-3">
-                        <input type="text" className={`form-control ${validationErrors.adminAadhar ? 'is-invalid' : ''}`} name="adminAadhar" value={adminData.adminAadhar} onChange={handleInputChange} placeholder="Aadhar Number *" required />
-                        {validationErrors.adminAadhar && <div className="invalid-feedback">{validationErrors.adminAadhar}</div>}
                     </div>
                     <div className="mb-3">
                         <input type="tel" className={`form-control ${validationErrors.adminMobile ? 'is-invalid' : ''}`} name="adminMobile" value={adminData.adminMobile} onChange={handleInputChange} placeholder="Mobile Number *" required />

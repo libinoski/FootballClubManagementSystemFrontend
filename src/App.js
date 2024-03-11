@@ -10,6 +10,12 @@ import PlayerRegistration from './components/Player/PlayerRegistration';
 import PlayerLogin from './components/Player/PlayerLogin';
 import CommonFooter from './components/Common/CommonFooter';
 import CommonHomePage from './components/Common/CommonHome';
+import AdminViewProfile from './components/Admin/AdminViewProfile';
+import AdminNavbar from './components/Admin/AdminNavbar';
+import ClubViewProfile from './components/Club/ClubViewProfile';
+import ClubNavbar from './components/Club/ClubNabvar';
+import PlayerViewProfile from './components/Player/PlayerViewProfile';
+import PlayerNavbar from './components/Player/PlayerNavbar';
 
 
 
@@ -25,13 +31,20 @@ function App() {
 
         <Route path='/adminLogin' element={<AdminLogin />} />
         <Route path='/adminRegistration' element={<AdminRegistration />} />
+        <Route path='/adminNavbar' element={<AdminNavbar />} />
+        <Route path='/adminViewProfile' element={<AdminViewProfile />} />
         
-        <Route path='/clubLogin' element={<ClubLogin />} />
         <Route path='/clubRegistration' element={<ClubRegistration />} />
+        <Route path='/clubLogin' element={<ClubLogin />} />
+        <Route path='/clubNavbar' element={<ClubNavbar />} />
+        <Route path='/ClubViewProfile' element={<ClubViewProfile />} />
 
 
         <Route path='/playerRegistration' element={<PlayerRegistration />} />
         <Route path='/playerLogin' element={<PlayerLogin />} />
+        <Route path='/playerNavbar' element={<PlayerNavbar />} />
+        <Route path='/playerviewProfile' element={<PlayerViewProfile />} />
+
         
 
         

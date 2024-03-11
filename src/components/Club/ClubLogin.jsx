@@ -30,7 +30,7 @@ const ClubLogin = () => {
             if (response.status === 200) {
                 sessionStorage.setItem('clubId', response.data.data.club.clubId);
                 sessionStorage.setItem('token', response.data.data.token);
-                navigate('/ClubViewProfile');
+                navigate('/clubViewProfile');
             }
         } catch (error) {
             if (error.response) {

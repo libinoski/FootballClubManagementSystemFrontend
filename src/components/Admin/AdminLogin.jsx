@@ -29,9 +29,9 @@ const AdminLogin = () => {
             const response = await axios.post('http://localhost:4040/api/admin/adminLogin', loginData);
             if (response.status === 200) {
                 // alert(response.data.message);
-                sessionStorage.setItem('AdminId', response.data.data.admin.adminId);
+                sessionStorage.setItem('adminId', response.data.data.admin.adminId);
                 sessionStorage.setItem('token', response.data.data.token);
-                navigate('/AdminViewProfile');
+                navigate('/adminViewProfile');
             }
         } catch (error) {
             if (error.response) {
