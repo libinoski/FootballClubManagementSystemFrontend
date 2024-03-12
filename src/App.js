@@ -19,6 +19,13 @@ import PlayerNavbar from './components/Player/PlayerNavbar';
 import AdminUpdateProfile from './components/Admin/AdminUpdateProfile';
 import ClubUpdateProfile from './components/Club/ClubUpdateProfile';
 import PlayerUpdateProfile from './components/Player/PlayerUpdateProfile';
+import AdminAddNews from './components/Admin/AdminAddNews';
+import AdminViewAllNews from './components/Admin/AdminViewAllNews';
+import AdminViewOneNews from './components/Admin/AdminViewOneNews';
+import ClubViewAllNews from './components/Club/ClubViewAllNews';
+import ClubViewOneNews from './components/Club/ClubViewOneNews';
+import PlayerViewAllNews from './components/Player/PlayerViewAllNews';
+import PlayerViewOneNews from './components/Player/PlayerViewOneNews';
 
 
 
@@ -37,12 +44,17 @@ function App() {
         <Route path='/adminNavbar' element={<AdminNavbar />} />
         <Route path='/adminViewProfile' element={<AdminViewProfile />} />
         <Route path='/adminUpdateProfile' element={<AdminUpdateProfile />} />
+        <Route path='/adminAddNews' element={<AdminAddNews />} />
+        <Route path='/adminViewAllNews' element={<AdminViewAllNews />} />
+        <Route path='/adminViewOneNews' element={<AdminViewOneNews />} />
         
         <Route path='/clubRegistration' element={<ClubRegistration />} />
         <Route path='/clubLogin' element={<ClubLogin />} />
         <Route path='/clubNavbar' element={<ClubNavbar />} />
         <Route path='/clubViewProfile' element={<ClubViewProfile />} />
         <Route path='/clubUpdateProfile' element={<ClubUpdateProfile />} />
+        <Route path='/clubViewAllNews' element={<ClubViewAllNews />} />
+        <Route path='/clubViewOneNews' element={<ClubViewOneNews />} />
 
 
         <Route path='/playerRegistration' element={<PlayerRegistration />} />
@@ -50,6 +62,8 @@ function App() {
         <Route path='/playerNavbar' element={<PlayerNavbar />} />
         <Route path='/playerviewProfile' element={<PlayerViewProfile />} />
         <Route path='/playerUpdateProfile' element={<PlayerUpdateProfile />} />
+        <Route path='/playerViewAllNews' element={<PlayerViewAllNews />} />
+        <Route path='/playerViewOneNews' element={<PlayerViewOneNews />} />
 
         
 

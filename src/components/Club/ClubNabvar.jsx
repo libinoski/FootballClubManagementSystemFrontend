@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignInAlt, faUserPlus,  faUsers, faClinicMedical, faGamepad } from '@fortawesome/free-solid-svg-icons';
+import { faSignInAlt, faUserPlus,  faUsers, faClinicMedical, faGamepad,faNewspaper } from '@fortawesome/free-solid-svg-icons';
 
 const ClubNavbar = () => {
     return (
@@ -26,6 +26,15 @@ const ClubNavbar = () => {
                                 <FontAwesomeIcon icon={faSignInAlt} className="me-2" />
                                 Club Login
                             </Link>
+                        </li>
+                        <li className="nav-item dropdown">
+                            <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdownNews" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{ color: '#495057' }}>
+                                <FontAwesomeIcon icon={faNewspaper} className="me-2" style={{ color: '#ffc107' }} />
+                                News Management
+                            </Link>
+                            <ul className="dropdown-menu" aria-labelledby="navbarDropdownNews">
+                                <li><Link className="dropdown-item" to="/clubViewAllNews">View All News</Link></li>
+                            </ul>
                         </li>
                         <li className="nav-item dropdown">
                             <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdownPlayerManagement" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{ color: '#495057' }}>

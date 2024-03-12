@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserCircle, faHome, faUserEdit, faBell, faFutbol, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import { faUserCircle, faHome, faUserEdit, faBell, faFutbol, faPaperPlane,faNewspaper } from '@fortawesome/free-solid-svg-icons';
 
 const PlayerNavbar = () => {
     return (
@@ -32,6 +32,15 @@ const PlayerNavbar = () => {
                                 <FontAwesomeIcon icon={faBell} className="me-2" />
                                 Notifications
                             </Link>
+                        </li>
+                        <li className="nav-item dropdown">
+                            <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdownNews" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{ color: '#495057' }}>
+                                <FontAwesomeIcon icon={faNewspaper} className="me-2" style={{ color: '#ffc107' }} />
+                                News Management
+                            </Link>
+                            <ul className="dropdown-menu" aria-labelledby="navbarDropdownNews">
+                                <li><Link className="dropdown-item" to="/playerViewAllNews">View All News</Link></li>
+                            </ul>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/playerViewAllMatches" style={{ color: '#495057' }}>
