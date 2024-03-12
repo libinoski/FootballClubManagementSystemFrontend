@@ -87,11 +87,11 @@ const ClubViewProfile = () => {
                                         </div>
                                         <div className="col-12 col-md-7">
                                             <h3 className="mb-3 text-primary">{clubProfile.managerName}</h3>
-                                            <p className="mb-2"><strong>Email:</strong> {clubProfile.clubEmail}</p>
-                                            <p className="mb-2"><strong>Address:</strong> {clubProfile.clubAddress}</p>
-                                            <p className="mb-2"><strong>Manager:</strong> {clubProfile.managerName}</p>
-                                            <p className="mb-2"><strong>Email:</strong> {clubProfile.managerEmail}</p>
-                                            <p className="mb-2"><strong>Mobile:</strong> {clubProfile.managerMobile}</p>
+                                            <p className="mb-2"><strong>Club Email:</strong> {clubProfile.clubEmail}</p>
+                                            <p className="mb-2"><strong>Club Address:</strong> {clubProfile.clubAddress}</p>
+                                            <p className="mb-2"><strong>Manager Name:</strong> {clubProfile.managerName}</p>
+                                            <p className="mb-2"><strong>Manager Email:</strong> {clubProfile.managerEmail}</p>
+                                            <p className="mb-2"><strong>Manager Mobile:</strong> {clubProfile.managerMobile}</p>
                                         </div>
                                     </div>
                                     <div className="row justify-content-center mt-4">

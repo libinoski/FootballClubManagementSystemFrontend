@@ -16,6 +16,9 @@ import ClubViewProfile from './components/Club/ClubViewProfile';
 import ClubNavbar from './components/Club/ClubNabvar';
 import PlayerViewProfile from './components/Player/PlayerViewProfile';
 import PlayerNavbar from './components/Player/PlayerNavbar';
+import AdminUpdateProfile from './components/Admin/AdminUpdateProfile';
+import ClubUpdateProfile from './components/Club/ClubUpdateProfile';
+import PlayerUpdateProfile from './components/Player/PlayerUpdateProfile';
 
 
 
@@ -33,17 +36,20 @@ function App() {
         <Route path='/adminRegistration' element={<AdminRegistration />} />
         <Route path='/adminNavbar' element={<AdminNavbar />} />
         <Route path='/adminViewProfile' element={<AdminViewProfile />} />
+        <Route path='/adminUpdateProfile' element={<AdminUpdateProfile />} />
         
         <Route path='/clubRegistration' element={<ClubRegistration />} />
         <Route path='/clubLogin' element={<ClubLogin />} />
         <Route path='/clubNavbar' element={<ClubNavbar />} />
-        <Route path='/ClubViewProfile' element={<ClubViewProfile />} />
+        <Route path='/clubViewProfile' element={<ClubViewProfile />} />
+        <Route path='/clubUpdateProfile' element={<ClubUpdateProfile />} />
 
 
         <Route path='/playerRegistration' element={<PlayerRegistration />} />
         <Route path='/playerLogin' element={<PlayerLogin />} />
         <Route path='/playerNavbar' element={<PlayerNavbar />} />
         <Route path='/playerviewProfile' element={<PlayerViewProfile />} />
+        <Route path='/playerUpdateProfile' element={<PlayerUpdateProfile />} />
 
         
 

@@ -88,7 +88,6 @@ const AdminViewProfile = () => {
                                         <div className="col-12 col-md-7">
                                             <h3 className="mb-3 text-primary">{adminProfile.adminName}</h3>
                                             <p className="mb-2"><strong>Email:</strong> {adminProfile.adminEmail}</p>
-                                            <p className="mb-2"><strong>Aadhar:</strong> {adminProfile.adminAadhar}</p>
                                             <p className="mb-2"><strong>Mobile:</strong> {adminProfile.adminMobile}</p>
                                             <p className="mb-2"><strong>Address:</strong> {adminProfile.adminAddress}</p>
                                         </div>
