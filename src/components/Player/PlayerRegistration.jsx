@@ -266,16 +266,31 @@ const PlayerRegistration = () => {
                     </div>
                     {validationErrors.playerPassword && <div className="invalid-feedback" style={{ display: 'block' }}>{validationErrors.playerPassword}</div>}
                 </div>
-                <div className="mb-3">
-                    <button type="submit" className={`btn ${submitFailed ? 'btn-danger' : 'btn-success'}`} disabled={isLoading}>
-                        {isLoading ? 'Submitting...' : 'Register'}
-                    </button>
-                </div>
-                <div className="mb-3">
-                    <button type="button" className="btn btn-outline-primary" onClick={() => navigate('/playerLogin')}>
-                        Login
-                    </button>
-                </div>
+                <div className="mb-3 d-flex justify-content-center">
+    <button 
+        type="submit" 
+        className={`btn ${submitFailed ? 'btn-danger' : ''}`} // Removed 'btn-success' to override with gradient
+        disabled={isLoading}
+        style={{
+            backgroundImage: submitFailed ? 'none' : 'linear-gradient(to right, #00b09b, #96c93d)', // Conditional gradient
+            color: 'white', // Ensures text visibility
+            border: 'none', // Modern look without borders
+            boxShadow: '0 4px 6px rgba(0,0,0,0.1)', // Material design shadow for depth
+            padding: '10px 20px', // Comfortable padding
+            borderRadius: '30px', // Smooth, rounded corners
+            fontWeight: '600', // Slightly bolder text for clarity
+            cursor: 'pointer', // Change cursor on hover to indicate action
+            width: 'auto', // Auto width based on content
+            display: 'inline-block', // Allows for text alignment and custom width
+            transition: 'box-shadow 0.2s ease', // Smooth shadow transition for interactive feedback
+            opacity: isLoading ? 0.7 : 1, // Lower opacity when loading for feedback
+            pointerEvents: isLoading ? 'none' : 'auto' // Prevent interaction when loading
+        }}>
+        {isLoading ? 'Submitting...' : 'Register'}
+    </button>
+</div>
+
+
             </form>
         </div>
     </div>

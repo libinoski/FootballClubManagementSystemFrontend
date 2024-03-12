@@ -169,65 +169,87 @@ const ClubRegistration = () => {
                                 {validationErrors.clubPassword && <div className="invalid-feedback">{validationErrors.clubPassword}</div>}
                             </div>
                             <div className="mb-3">
-    <button
-        type="button"
-        className="btn btn-outline-primary"
-        onClick={() => fileInputRef.current.click()}
-        style={{
-            backgroundImage: 'linear-gradient(to right, #6a11cb, #2575fc)', // Gradient from pink to orange
-            color: 'white', // Text color for visibility
-            border: 'none', // Removes the border for a sleek look
-            width: '100%', // Sets the button to full container width
-            maxWidth: '200px', // Maximum width to control size on larger screens
-            height: '50px', // Fixed height for consistency
-            display: 'block', // Ensures the button is block-level for width control
-            margin: '0 auto' // Centers the button horizontally
-        }}>
-        Upload Club Image
-    </button>
-    <input
-        ref={fileInputRef}
-        type="file"
-        name="clubImage"
-        onChange={handleImageUpload}
-        accept="image/*"
-        style={{ display: 'none' }} />
-    {clubImageName && <div className="text-muted">{clubImageName}</div>}
-    {validationErrors.clubImage && <div className="invalid-feedback d-block">{validationErrors.clubImage}</div>}
-</div>
-
-<div className="mb-3">
-    <button
-        type="button"
-        className="btn btn-outline-primary"
-        onClick={() => managerFileInputRef.current.click()}
-        style={{
-            backgroundImage: 'linear-gradient(to right, #6a11cb, #2575fc)', // Gradient from purple to blue
-            color: 'white', // Text color for visibility
-            border: 'none', // Removes the border for a sleek look
-            width: '100%', // Sets the button to full container width
-            maxWidth: '200px', // Maximum width to control size on larger screens
-            height: '50px', // Fixed height for consistency
-            display: 'block', // Ensures the button is block-level for width control
-            margin: '0 auto' // Centers the button horizontally
-        }}>
-        Upload Manager Image
-    </button>
-    <input
-        ref={managerFileInputRef}
-        type="file"
-        name="managerImage"
-        onChange={handleImageUpload}
-        accept="image/*"
-        style={{ display: 'none' }} />
-    {managerImageName && <div className="text-muted">{managerImageName}</div>}
-    {validationErrors.managerImage && <div className="invalid-feedback d-block">{validationErrors.managerImage}</div>}
-</div>
-
-
-                            <div className="d-grid gap-2">
-                                <button type="submit" className="btn btn-primary" disabled={isLoading}>{isLoading ? 'Registering...' : 'Register'}</button>
+                                <button
+                                    type="button"
+                                    className="btn btn-outline-primary"
+                                    onClick={() => fileInputRef.current.click()}
+                                    style={{
+                                        backgroundImage: 'linear-gradient(to right, #6a11cb, #2575fc)', // Gradient from pink to orange
+                                        color: 'white', // Text color for visibility
+                                        border: 'none', // Removes the border for a sleek look
+                                        width: '100%', // Sets the button to full container width
+                                        maxWidth: '200px', // Maximum width to control size on larger screens
+                                        height: '50px', // Fixed height for consistency
+                                        display: 'block', // Ensures the button is block-level for width control
+                                        margin: '0 auto' // Centers the button horizontally
+                                    }}>
+                                    Upload Club Image
+                                </button>
+                                <input
+                                    ref={fileInputRef}
+                                    type="file"
+                                    name="clubImage"
+                                    onChange={handleImageUpload}
+                                    accept="image/*"
+                                    style={{ display: 'none' }} />
+                                {clubImageName && <div className="text-muted">{clubImageName}</div>}
+                                {validationErrors.clubImage && <div className="invalid-feedback d-block">{validationErrors.clubImage}</div>}
                             </div>
+
+                            <div className="mb-3">
+                                <button
+                                    type="button"
+                                    className="btn btn-outline-primary"
+                                    onClick={() => managerFileInputRef.current.click()}
+                                    style={{
+                                        backgroundImage: 'linear-gradient(to right, #6a11cb, #2575fc)', // Gradient from purple to blue
+                                        color: 'white', // Text color for visibility
+                                        border: 'none', // Removes the border for a sleek look
+                                        width: '100%', // Sets the button to full container width
+                                        maxWidth: '200px', // Maximum width to control size on larger screens
+                                        height: '50px', // Fixed height for consistency
+                                        display: 'block', // Ensures the button is block-level for width control
+                                        margin: '0 auto' // Centers the button horizontally
+                                    }}>
+                                    Upload Manager Image
+                                </button>
+                                <input
+                                    ref={managerFileInputRef}
+                                    type="file"
+                                    name="managerImage"
+                                    onChange={handleImageUpload}
+                                    accept="image/*"
+                                    style={{ display: 'none' }} />
+                                {managerImageName && <div className="text-muted">{managerImageName}</div>}
+                                {validationErrors.managerImage && <div className="invalid-feedback d-block">{validationErrors.managerImage}</div>}
+                            </div>
+
+
+                            <div className="d-inline-block">
+    <button 
+        type="submit" 
+        className="btn btn-primary" // Added 'btn-primary' to apply Bootstrap 5 styles
+        disabled={isLoading}
+        style={{
+            background: 'linear-gradient(to right, #4CAF50, #2E8B57)', // Green gradient background
+            color: 'white', // White text color for visibility
+            border: 'none', // No border for a sleek look
+            boxShadow: '0 2px 4px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19)', // Material design-inspired shadow
+            padding: '0.375rem 0.75rem', // Standard Bootstrap padding for buttons
+            borderRadius: '0.25rem', // Standard Bootstrap border-radius for buttons
+            fontWeight: '600', // Slightly bolder font weight for text clarity
+            cursor: 'pointer', // Ensures the cursor changes on hover to indicate it's clickable
+            transition: 'all 0.2s ease-in-out', // Smooth transition for hover effects
+            opacity: isLoading ? 0.7 : 1, // Lower opacity when loading for feedback
+            pointerEvents: isLoading ? 'none' : 'auto', // Disable interactions when loading
+            minWidth: 'fit-content', // Button size adjusts to minimum required width for text
+            maxWidth: '100%', // Button size doesn't exceed its container width
+        }}>
+        {isLoading ? 'Registering...' : 'Register'}
+    </button>
+</div>
+
+
                         </form>
                     </div>
                 </div>

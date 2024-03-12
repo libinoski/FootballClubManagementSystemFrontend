@@ -109,7 +109,6 @@ const PlayerLogin = () => {
                     borderRadius: '15px'
                 }}>
                     <div className="card-body">
-                        <h2 className="card-title text-center">Login</h2>
                         <form onSubmit={handleSubmit} noValidate>
                             <div className="mb-3">
                                 <label htmlFor="playerEmail" className="form-label">Email:</label>
