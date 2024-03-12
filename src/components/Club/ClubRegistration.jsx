@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import CommonFooter from '../Common/CommonFooter';
@@ -101,14 +101,38 @@ const ClubRegistration = () => {
     };
 
     return (
-        <div>
-            <nav className="navbar navbar-dark" style={{background: 'rgba(0, 0, 0, 0.5)'}}>
-                <div className="container">
-                    <span className="navbar-brand mb-0 h1 text-light d-block mx-auto font-weight-bold">Club Registration</span>
+        <div style={{ background: 'linear-gradient(to right, #0f0c29, #302b63, #24243e)', color: '#fff', minHeight: '100vh' }}>            {/* Navbar */}
+            <nav className="navbar navbar-dark" style={{
+                backgroundColor: 'rgba(255, 255, 255, 0.1)', // Light transparent background
+                backdropFilter: 'blur(10px)',
+                WebkitBackdropFilter: 'blur(10px)', // For Safari
+            }}>
+                <div className="container-fluid">
+                    <span className="navbar-brand mb-0 h1 text-light d-block mx-auto font-weight-bold" style={{
+                        fontFamily: 'Arial, sans-serif',
+                    }}>Club Registration</span>
+                    <Link to="/" className="btn btn-outline-light" style={{
+                        position: 'absolute',
+                        right: '10px',
+                        top: '50%',
+                        transform: 'translateY(-50%)',
+                        borderColor: '#ffffff', // Custom border color
+                        color: '#ffffff', // Text color
+                        backgroundColor: 'rgba(255, 255, 255, 0.2)', // Light transparent background
+                        backdropFilter: 'blur(5px)',
+                        WebkitBackdropFilter: 'blur(5px)', // For Safari
+                        boxShadow: '0 0 10px rgba(255, 255, 255, 0.3)', // Soft glow effect
+                        borderRadius: '30px', // Rounded edges
+                        padding: '10px 20px', // Spacing inside the button
+                        fontSize: '1rem', // Text size
+                        transition: 'all 0.3s ease', // Smooth transition for hover effects
+                    }}>
+                        Home
+                    </Link>
                 </div>
             </nav>
             <div className="d-flex align-items-center justify-content-center" style={{ minHeight: '100vh' }}>
-                <div className="card shadow-lg p-4" style={{width: '100%', maxWidth: '500px', backgroundColor: 'rgba(255, 255, 255, 0.9)'}}>
+                <div className="card shadow-lg p-4" style={{ width: '100%', maxWidth: '500px', backgroundColor: 'rgba(255, 255, 255, 0)' }}>
                     <div className="card-body">
                         <form onSubmit={handleSubmit} noValidate>
                             <div className="mb-3">
@@ -145,17 +169,62 @@ const ClubRegistration = () => {
                                 {validationErrors.clubPassword && <div className="invalid-feedback">{validationErrors.clubPassword}</div>}
                             </div>
                             <div className="mb-3">
-                                <button type="button" className="btn btn-outline-primary" onClick={() => fileInputRef.current.click()}>Upload Club Image</button>
-                                <input ref={fileInputRef} type="file" name="clubImage" onChange={handleImageUpload} accept="image/*" style={{ display: 'none' }} />
-                                {clubImageName && <div className="text-muted">{clubImageName}</div>}
-                                {validationErrors.clubImage && <div className="invalid-feedback d-block">{validationErrors.clubImage}</div>}
-                            </div>
-                            <div className="mb-3">
-                                <button type="button" className="btn btn-outline-primary" onClick={() => managerFileInputRef.current.click()}>Upload Manager Image</button>
-                                <input ref={managerFileInputRef} type="file" name="managerImage" onChange={handleImageUpload} accept="image/*" style={{ display: 'none' }} />
-                                {managerImageName && <div className="text-muted">{managerImageName}</div>}
-                                {validationErrors.managerImage && <div className="invalid-feedback d-block">{validationErrors.managerImage}</div>}
-                            </div>
+    <button
+        type="button"
+        className="btn btn-outline-primary"
+        onClick={() => fileInputRef.current.click()}
+        style={{
+            backgroundImage: 'linear-gradient(to right, #6a11cb, #2575fc)', // Gradient from pink to orange
+            color: 'white', // Text color for visibility
+            border: 'none', // Removes the border for a sleek look
+            width: '100%', // Sets the button to full container width
+            maxWidth: '200px', // Maximum width to control size on larger screens
+            height: '50px', // Fixed height for consistency
+            display: 'block', // Ensures the button is block-level for width control
+            margin: '0 auto' // Centers the button horizontally
+        }}>
+        Upload Club Image
+    </button>
+    <input
+        ref={fileInputRef}
+        type="file"
+        name="clubImage"
+        onChange={handleImageUpload}
+        accept="image/*"
+        style={{ display: 'none' }} />
+    {clubImageName && <div className="text-muted">{clubImageName}</div>}
+    {validationErrors.clubImage && <div className="invalid-feedback d-block">{validationErrors.clubImage}</div>}
+</div>
+
+<div className="mb-3">
+    <button
+        type="button"
+        className="btn btn-outline-primary"
+        onClick={() => managerFileInputRef.current.click()}
+        style={{
+            backgroundImage: 'linear-gradient(to right, #6a11cb, #2575fc)', // Gradient from purple to blue
+            color: 'white', // Text color for visibility
+            border: 'none', // Removes the border for a sleek look
+            width: '100%', // Sets the button to full container width
+            maxWidth: '200px', // Maximum width to control size on larger screens
+            height: '50px', // Fixed height for consistency
+            display: 'block', // Ensures the button is block-level for width control
+            margin: '0 auto' // Centers the button horizontally
+        }}>
+        Upload Manager Image
+    </button>
+    <input
+        ref={managerFileInputRef}
+        type="file"
+        name="managerImage"
+        onChange={handleImageUpload}
+        accept="image/*"
+        style={{ display: 'none' }} />
+    {managerImageName && <div className="text-muted">{managerImageName}</div>}
+    {validationErrors.managerImage && <div className="invalid-feedback d-block">{validationErrors.managerImage}</div>}
+</div>
+
+
                             <div className="d-grid gap-2">
                                 <button type="submit" className="btn btn-primary" disabled={isLoading}>{isLoading ? 'Registering...' : 'Register'}</button>
                             </div>
@@ -163,7 +232,7 @@ const ClubRegistration = () => {
                     </div>
                 </div>
             </div>
-            <CommonFooter/>
+            <CommonFooter />
         </div>
     );
 };

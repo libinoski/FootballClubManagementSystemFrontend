@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import CommonFooter from '../Common/CommonFooter';
@@ -121,16 +121,39 @@ const AdminRegistration = () => {
     };
 
     return (
-<div>
-    <nav className="navbar navbar-dark" style={{background: 'rgba(0, 0, 0, 0.5)'}}>
-        <div className="container">
-            <span className="navbar-brand mb-0 h1 text-light d-block mx-auto font-weight-bold">Admin Registration</span>
-        </div>
-    </nav>
-    <div className="d-flex align-items-center justify-content-center" style={{ minHeight: '100vh' }}>
-        <div className="card shadow-lg p-4" style={{width: '100%', maxWidth: '500px', backgroundColor: 'rgba(255, 255, 255, 0.9)'}}>
+        <div style={{ background: 'linear-gradient(to right, #0f0c29, #302b63, #24243e)', color: '#fff', minHeight: '100vh' }}>            {/* Navbar */}
+<nav className="navbar navbar-dark" style={{ 
+    backgroundColor: 'rgba(255, 255, 255, 0.1)', // Light transparent background
+    backdropFilter: 'blur(10px)',
+    WebkitBackdropFilter: 'blur(10px)', // For Safari
+}}>
+    <div className="container-fluid">
+        <span className="navbar-brand mb-0 h1 text-light d-block mx-auto font-weight-bold" style={{ 
+            fontFamily: 'Arial, sans-serif',
+        }}>Admin Registration</span>
+        <Link to="/" className="btn btn-outline-light" style={{ 
+            position: 'absolute', 
+            right: '10px', 
+            top: '50%', 
+            transform: 'translateY(-50%)',
+            borderColor: '#ffffff', // Custom border color
+            color: '#ffffff', // Text color
+            backgroundColor: 'rgba(255, 255, 255, 0.2)', // Light transparent background
+            backdropFilter: 'blur(5px)',
+            WebkitBackdropFilter: 'blur(5px)', // For Safari
+            boxShadow: '0 0 10px rgba(255, 255, 255, 0.3)', // Soft glow effect
+            borderRadius: '30px', // Rounded edges
+            padding: '10px 20px', // Spacing inside the button
+            fontSize: '1rem', // Text size
+            transition: 'all 0.3s ease', // Smooth transition for hover effects
+        }}>
+            Home
+        </Link>
+    </div>
+</nav>
+<div className="d-flex align-items-center justify-content-center" style={{ minHeight: '100vh' }}>
+  <div className="card shadow-lg p-4" style={{width: '100%', maxWidth: '500px', backgroundColor: 'rgba(255, 255, 255, 0)'}}>
             <div className="card-body">
-                <h1 className="text-center mb-4">Admin Registration</h1>
                 <form onSubmit={handleSubmit} noValidate>
                     <div className="mb-3">
                         <input type="text" className={`form-control ${validationErrors.adminName ? 'is-invalid' : ''}`} name="adminName" value={adminData.adminName} onChange={handleInputChange} placeholder="Name *" required />
@@ -158,12 +181,29 @@ const AdminRegistration = () => {
                         {validationErrors.adminPassword && <div className="invalid-feedback">{validationErrors.adminPassword}</div>}
                     </div>
                     <div className="mb-3">
-                        <button type="button" className={`btn ${validationErrors.adminImage ? 'btn-danger' : 'btn-outline-primary'} w-100`} onClick={() => fileInputRef.current.click()} style={{ marginBottom: '5px' }}>
-                            {adminData.adminImage ? adminData.adminImage.name : 'Upload Admin Image'}
-                        </button>
-                        <input ref={fileInputRef} type="file" className={`form-control-file ${validationErrors.adminImage ? 'is-invalid' : ''}`} name="adminImage" onChange={handleImageUpload} accept=".jpg, .jpeg, .png" style={{ display: 'none' }} />
-                        {validationErrors.adminImage && <div className="invalid-feedback">{validationErrors.adminImage}</div>}
-                    </div>
+    <button 
+        type="button" 
+        className={`btn ${validationErrors.adminImage ? 'btn-danger' : 'btn-outline-primary'} w-100`} 
+        onClick={() => fileInputRef.current.click()} 
+        style={{ 
+            marginBottom: '5px', 
+            backgroundImage: 'linear-gradient(to right, #007bff, #6610f2)', // Example gradient from blue to purple
+            border: 'none', // Remove border for a more modern look, if desired
+            color: 'white' // Change text color to white for better visibility on gradient
+        }}>
+        {adminData.adminImage ? adminData.adminImage.name : 'Upload Admin Image'}
+    </button>
+    <input 
+        ref={fileInputRef} 
+        type="file" 
+        className={`form-control-file ${validationErrors.adminImage ? 'is-invalid' : ''}`} 
+        name="adminImage" 
+        onChange={handleImageUpload} 
+        accept=".jpg, .jpeg, .png" 
+        style={{ display: 'none' }} />
+    {validationErrors.adminImage && <div className="invalid-feedback">{validationErrors.adminImage}</div>}
+</div>
+
                     <div className="text-center mt-4">
                         <button type="submit" disabled={isLoading} className="btn btn-primary" style={{ width: '100%' }}>
                             {isLoading ? 'Submitting...' : 'Register'}
