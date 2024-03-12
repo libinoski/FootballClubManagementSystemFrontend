@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserCircle, faHome, faUserEdit, faBell, faFutbol, faPaperPlane,faNewspaper } from '@fortawesome/free-solid-svg-icons';
+import { faUserCircle, faHome, faUserEdit, faBell, faFutbol, faPaperPlane, faNewspaper, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 
 const PlayerNavbar = () => {
     return (
@@ -17,25 +17,25 @@ const PlayerNavbar = () => {
                     <ul className="navbar-nav">
                         <li className="nav-item">
                             <Link className="nav-link" to="/playerViewProfile" style={{ color: '#495057' }}>
-                                <FontAwesomeIcon icon={faUserCircle} className="me-2" />
+                                <FontAwesomeIcon icon={faUserCircle} className="me-2 text-success" />
                                 View Profile
                             </Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/playerUpdateProfile" style={{ color: '#495057' }}>
-                                <FontAwesomeIcon icon={faUserEdit} className="me-2" />
+                                <FontAwesomeIcon icon={faUserEdit} className="me-2 text-primary" />
                                 Update Profile
                             </Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/playerViewAllNotifications" style={{ color: '#495057' }}>
-                                <FontAwesomeIcon icon={faBell} className="me-2" />
+                                <FontAwesomeIcon icon={faBell} className="me-2 text-warning" />
                                 Notifications
                             </Link>
                         </li>
                         <li className="nav-item dropdown">
                             <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdownNews" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{ color: '#495057' }}>
-                                <FontAwesomeIcon icon={faNewspaper} className="me-2" style={{ color: '#ffc107' }} />
+                                <FontAwesomeIcon icon={faNewspaper} className="me-2 text-info" />
                                 News Management
                             </Link>
                             <ul className="dropdown-menu" aria-labelledby="navbarDropdownNews">
@@ -44,23 +44,29 @@ const PlayerNavbar = () => {
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/playerViewAllMatches" style={{ color: '#495057' }}>
-                                <FontAwesomeIcon icon={faFutbol} className="me-2" />
+                                <FontAwesomeIcon icon={faFutbol} className="me-2 text-danger" />
                                 View Matches
                             </Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/playerViewAllClubs" style={{ color: '#495057' }}>
-                                <FontAwesomeIcon icon={faHome} className="me-2" />
+                                <FontAwesomeIcon icon={faHome} className="me-2 text-secondary" />
                                 View Clubs
                             </Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/playerSendLeaveRequestToClub" style={{ color: '#495057' }}>
-                                <FontAwesomeIcon icon={faPaperPlane} className="me-2" />
+                                <FontAwesomeIcon icon={faPaperPlane} className="me-2 text-info" />
                                 Leave Request
                             </Link>
                         </li>
-                        {/* Additional player navbar items as needed */}
+                        {/* Add logout link */}
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/" style={{ color: '#495057' }}>
+                                <FontAwesomeIcon icon={faSignOutAlt} className="me-2 text-danger" />
+                                Logout
+                            </Link>
+                        </li>
                     </ul>
                 </div>
             </div>

@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faNewspaper, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'; // Removed faFutbol and faChartLine imports
-
+import { faUser, faNewspaper, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 
 const AdminNavbar = () => {
     return (
@@ -19,7 +18,7 @@ const AdminNavbar = () => {
                     <ul className="navbar-nav">
                         <li className="nav-item dropdown">
                             <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdownProfile" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{ color: '#495057' }}>
-                                <FontAwesomeIcon icon={faUser} className="me-2" style={{ color: '#28a745' }} />
+                                <FontAwesomeIcon icon={faUser} className="me-2 text-success" />
                                 Profile Settings
                             </Link>
                             <ul className="dropdown-menu" aria-labelledby="navbarDropdownProfile">
@@ -29,7 +28,7 @@ const AdminNavbar = () => {
                         </li>
                         <li className="nav-item dropdown">
                             <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdownNews" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{ color: '#495057' }}>
-                                <FontAwesomeIcon icon={faNewspaper} className="me-2" style={{ color: '#ffc107' }} />
+                                <FontAwesomeIcon icon={faNewspaper} className="me-2 text-warning" />
                                 News Management
                             </Link>
                             <ul className="dropdown-menu" aria-labelledby="navbarDropdownNews">
@@ -39,7 +38,7 @@ const AdminNavbar = () => {
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/" style={{ color: '#495057' }}>
-                                <FontAwesomeIcon icon={faSignOutAlt} className="me-2" style={{ color: '#dc3545' }} />
+                                <FontAwesomeIcon icon={faSignOutAlt} className="me-2 text-danger" />
                                 Logout
                             </Link>
                         </li>

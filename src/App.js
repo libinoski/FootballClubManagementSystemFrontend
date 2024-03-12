@@ -26,6 +26,10 @@ import ClubViewAllNews from './components/Club/ClubViewAllNews';
 import ClubViewOneNews from './components/Club/ClubViewOneNews';
 import PlayerViewAllNews from './components/Player/PlayerViewAllNews';
 import PlayerViewOneNews from './components/Player/PlayerViewOneNews';
+import ClubViewAllUnapprovedPlayers from './components/Club/ClubViewAllUnApprovedPlayers';
+import ClubViewOneUnapprovedPlayer from './components/Club/ClubViewOneUnApprovedPlayer';
+import ClubViewAllPlayers from './components/Club/ClubViewAllPlayers';
+import ClubViewOnePlayer from './components/Club/ClubViewOnePlayer';
 
 
 
@@ -55,6 +59,10 @@ function App() {
         <Route path='/clubUpdateProfile' element={<ClubUpdateProfile />} />
         <Route path='/clubViewAllNews' element={<ClubViewAllNews />} />
         <Route path='/clubViewOneNews' element={<ClubViewOneNews />} />
+        <Route path='/clubViewAllUnapprovedPlayers' element={<ClubViewAllUnapprovedPlayers />} />
+        <Route path='/clubViewOneUnapprovedPlayer' element={<ClubViewOneUnapprovedPlayer />} />
+        <Route path='/clubViewAllPlayers' element={<ClubViewAllPlayers/>} />
+        <Route path='/clubViewOnePlayer' element={<ClubViewOnePlayer/>} />
 
 
         <Route path='/playerRegistration' element={<PlayerRegistration />} />
