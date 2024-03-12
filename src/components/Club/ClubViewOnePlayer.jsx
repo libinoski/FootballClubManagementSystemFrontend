@@ -158,59 +158,63 @@ const ClubViewOnePlayer = () => {
     };
 
     return (
-        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-            <div>
-                <ClubNavbar />
-                <div className="container-fluid py-5" style={{ paddingTop: '56px', paddingBottom: '80px', backgroundColor: '#f0f2f5', flex: '1' }}>
-                    <div className="row justify-content-center align-items-center">
-                        <div className="col-lg-8 d-flex align-items-center justify-content-center">
-                            {isLoading ? (
-                                <div className="text-center">
-                                    <div className="spinner-border text-primary" role="status">
-                                        <span className="visually-hidden">Loading player details...</span>
+<div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <div>
+        <ClubNavbar />
+        <div className="container-fluid py-5" style={{ paddingTop: '56px', paddingBottom: '80px', backgroundColor: '#f0f2f5', flex: 1 }}>
+            <div className="row justify-content-center align-items-center">
+                <div className="col-lg-8 d-flex align-items-start justify-content-center">
+                    {isLoading ? (
+                        <div className="text-center">
+                            <div className="spinner-border text-primary" role="status">
+                                <span className="visually-hidden">Loading player details...</span>
+                            </div>
+                        </div>
+                    ) : (
+                        <div className="col-lg-12">
+                            {playerDetails ? (
+                                <div className="card profile-card shadow border-0 w-100 h-100" style={{ borderRadius: '20px' }}>
+                                    <div className="card-body">
+                                        <div className="d-flex flex-column align-items-center mb-5">
+                                            <div className="profile-picture bg-light rounded-circle shadow" style={{ width: '200px', height: '200px', overflow: 'hidden', border: '5px solid white' }}>
+                                                <img src={playerDetails.playerImage} alt="Player" className="img-fluid" style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
+                                            </div>
+                                            <h3 className="mt-4 fs-4" style={{ fontSize: '1.5rem' }}>{playerDetails.playerName}</h3> 
+                                        </div>
+                                        <div className="text-left">
+                                            <p className="mb-2" style={{ fontSize: '1.125rem' }}><strong>Club:</strong> {playerDetails.clubName}</p>
+                                            <p className="mb-2" style={{ fontSize: '1.125rem' }}><strong>Email:</strong> {playerDetails.playerEmail}</p>
+                                            <p className="mb-2" style={{ fontSize: '1.125rem' }}><strong>Mobile:</strong> {playerDetails.playerMobile}</p>
+                                            <p className="mb-2" style={{ fontSize: '1.125rem' }}><strong>Address:</strong> {playerDetails.playerAddress}</p>
+                                            <p className="mb-2" style={{ fontSize: '1.125rem' }}><strong>Date of Birth:</strong> {playerDetails.playerDOB}</p>
+                                            <p className="mb-2" style={{ fontSize: '1.125rem' }}><strong>Country:</strong> {playerDetails.playerCountry}</p>
+                                            <p className="mb-2" style={{ fontSize: '1.125rem' }}><strong>Position:</strong> {playerDetails.playerPosition}</p>
+                                            <p className="mb-2" style={{ fontSize: '1.125rem' }}><strong>Manager Name:</strong> {playerDetails.managerName}</p>
+                                        </div>
+                                    </div>
+                                    <div className="card-footer d-flex justify-content-center bg-transparent border-top-0">
+                                        <button className="btn me-3" onClick={handleSendNotification} style={{ borderRadius: '50px', padding: '10px 30px', boxShadow: '0 4px 8px rgba(0,0,0,.1)', background: 'linear-gradient(135deg, #007BFF, #00DBDE)', border: 'none', color: 'white' }}>Send Notification</button>
+                                        <button className="btn me-3" onClick={handleDeletePlayer} style={{ borderRadius: '50px', padding: '10px 30px', boxShadow: '0 4px 8px rgba(0,0,0,.1)', background: 'linear-gradient(135deg, #FC466B, #FF7E5F)', border: 'none', color: 'white' }}>Delete</button>
+                                        <button className="btn me-3" onClick={handleSuspendPlayer} style={{ borderRadius: '50px', padding: '10px 30px', boxShadow: '0 4px 8px rgba(0,0,0,.1)', background: 'linear-gradient(135deg, #FFC837, #FF8008)', border: 'none', color: 'white' }}>Suspend</button>
+                                        <button className="btn" onClick={handleAddInjuryUpdate} style={{ borderRadius: '50px', padding: '10px 30px', boxShadow: '0 4px 8px rgba(0,0,0,.1)', background: 'linear-gradient(135deg, #24FF72, #9AFC98)', border: 'none', color: 'white' }}>Add Injury Update</button>
                                     </div>
                                 </div>
                             ) : (
-                                <div className="col-lg-12">
-                                    {playerDetails ? (
-                                        <div className="card profile-card shadow border-0 w-100 h-100" style={{ borderRadius: '20px' }}>
-                                            <div className="card-body">
-                                                <div className="d-flex flex-column align-items-center mb-5">
-                                                    <div className="profile-picture bg-light rounded-circle shadow" style={{ width: '200px', height: '200px', overflow: 'hidden', border: '5px solid white' }}>
-                                                        <img src={playerDetails.playerImage} alt="Player" className="img-fluid" style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
-                                                    </div>
-                                                    <h3 className="mt-4">{playerDetails.playerName}</h3>
-                                                </div>
-                                                <div className="text-center">
-                                                    <p className="mb-2"><strong>Email:</strong> {playerDetails.playerEmail}</p>
-                                                    <p className="mb-2"><strong>Mobile:</strong> {playerDetails.playerMobile}</p>
-                                                    <p className="mb-2"><strong>Address:</strong> {playerDetails.playerAddress}</p>
-                                                    <p className="mb-2"><strong>Date of Birth:</strong> {playerDetails.playerDOB}</p>
-                                                    <p className="mb-2"><strong>Country:</strong> {playerDetails.playerCountry}</p>
-                                                    <p className="mb-2"><strong>Position:</strong> {playerDetails.playerPosition}</p>
-                                                    <p className="mb-2"><strong>Manager Name:</strong> {playerDetails.managerName}</p>
-                                                </div>
-                                            </div>
-                                            <div className="card-footer d-flex justify-content-center bg-transparent border-top-0">
-                                                <button className="btn btn-primary me-3" onClick={handleSendNotification} style={{ borderRadius: '50px', padding: '10px 30px', boxShadow: '0 4px 8px rgba(0,0,0,.1)' }}>Send Notification</button>
-                                                <button className="btn btn-danger me-3" onClick={handleDeletePlayer} style={{ borderRadius: '50px', padding: '10px 30px', boxShadow: '0 4px 8px rgba(0,0,0,.1)' }}>Delete</button>
-                                                <button className="btn btn-warning" onClick={handleSuspendPlayer} style={{ borderRadius: '50px', padding: '10px 30px', boxShadow: '0 4px 8px rgba(0,0,0,.1)' }}>Suspend</button>
-                                                <button className="btn btn-warning" onClick={handleAddInjuryUpdate} style={{ borderRadius: '50px', padding: '10px 30px', boxShadow: '0 4px 8px rgba(0,0,0,.1)' }}>Add Injury Update</button>
-                                            </div>
-                                        </div>
-                                    ) : (
-                                        <p className="text-center">No player details found.</p>
-                                    )}
-                                </div>
+                                <p className="text-center">No player details found.</p>
                             )}
                         </div>
-                    </div>
+                    )}
                 </div>
             </div>
-            <div style={{ marginTop: 'auto' }}> {/* This div will push the footer to the bottom */}
-                <CommonFooter />
-            </div>
         </div>
+    </div>
+    <div style={{ marginTop: 'auto' }}> 
+        <CommonFooter />
+    </div>
+</div>
+
+
+
     );
 };
 
