@@ -18,22 +18,28 @@ const CommonHomePage = () => {
   };
 
   const cardStyle = (key) => {
-    let boxShadow = hoveredKey === key ? '0 4px 12px rgba(0, 0, 0, 0.5)' : '';
     return {
       transform: hoveredKey === key ? 'scale(1.05)' : 'scale(1)',
       transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease',
-      boxShadow,
-      borderColor: '#fff',
-      filter: hoveredKey && hoveredKey !== key ? 'blur(2px)' : 'none',
+      boxShadow: hoveredKey === key ? '0 0 0 3px rgba(255,0,0,0.5), 0 4px 12px rgba(0, 0, 0, 0.5)' : '',
+      borderColor: hoveredKey === key ? 'red' : '#fff',
+      filter: hoveredKey && hoveredKey !== key ? 'blur(1px)' : 'none',
       height: '100%',
       padding: '1rem',
       borderRadius: '15px',
-      backgroundColor: '#ffffff', // White background color
+      backgroundColor: 'transparent', // Make background transparent to show gradient
+      backgroundImage: 'linear-gradient(120deg, #303030, #212121)', // Linear gradient background
     };
   };
 
+  const cardTextStyle = {
+    color: '#fff', // Change text color to white
+    fontWeight: 'bold',
+    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+  };
+
   const pageStyle = {
-    background: 'linear-gradient(to right, #0f0c29, #302b63, #24243e)',
+    background: 'linear-gradient(to right, #000000, #000000)',
     color: '#fff',
     minHeight: '100vh',
     display: 'flex',
@@ -42,16 +48,11 @@ const CommonHomePage = () => {
   };
 
   const textStyle = {
-    color: '#fff', // White text color
+    color: '#FFEB3B',
     fontWeight: 'bold',
-    textShadow: '1px 1px  #000', // Add black shadow
+    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
   };
   
-  const cardTextStyle = {
-    color: '#000', // Black text color
-    fontWeight: 'bold',
-  };
-
   return (
     <div style={pageStyle}>
       <div className="container py-5">
@@ -62,7 +63,7 @@ const CommonHomePage = () => {
         </div>
         <div className="row mb-4">
           <div className="col-12 text-center">
-            <h2 style={textStyle}>Welcome to EliteFootPro: Ultimate Football Gaming</h2>
+            <h2 style={textStyle}>Welcome to FootPro: Ultimate Football Gaming</h2>
             <p className="lead" style={textStyle}>
               Welcome to the ultimate Football Match Management System, designed to revolutionize the way football clubs and players are managed.
             </p>
@@ -75,7 +76,7 @@ const CommonHomePage = () => {
           ].map((card, index) => (
             <div className="col-12 col-md-6 col-lg-4 d-flex align-items-stretch" key={index}>
               <Link to={card.link} className="text-decoration-none w-100">
-                <div className="card border-0 shadow"
+                <div className="card border-0"
                   style={cardStyle(card.key)}
                   onMouseEnter={() => handleMouseEnter(card.key)}
                   onMouseLeave={handleMouseLeave}>

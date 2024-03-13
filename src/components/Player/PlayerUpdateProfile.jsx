@@ -144,16 +144,16 @@ const PlayerUpdateProfile = () => {
     };
 
     return (
-        <div>
+        <div style={{ background: 'linear-gradient(to right, #0f0c29, #302b63, #24243e)', color: '#fff', minHeight: '100vh' }}>
             <PlayerNavbar />
             <div className="container-fluid" style={{ paddingTop: '56px', paddingBottom: '80px' }}>
                 <div className="row">
                     <div className="col-12 d-flex align-items-center justify-content-center">
-                        <div className="card" style={{ width: '100%', maxWidth: '500px', backgroundColor: 'rgba(255, 255, 255, 0.5)', border: Object.keys(errorMessages).length > 0 ? '1px solid red' : 'none' }}>
+                    <div className="card bg-transparent" style={{ width: '100%', maxWidth: '500px', border: Object.keys(errorMessages).length > 0 ? '1px solid red' : 'none' }}>
                             <div className="card-body">
                                 <form onSubmit={handleSubmit} noValidate>
                                     <div className="mb-3">
-                                        <label htmlFor="playerName" className="form-label">Player Name:</label>
+                                        <label htmlFor="playerName" className="form-label" style={{ color: '#fff' }}>Player Name:</label>
                                         <input
                                             type="text"
                                             name="playerName"
@@ -167,7 +167,7 @@ const PlayerUpdateProfile = () => {
                                     </div>
 
                                     <div className="mb-3">
-                                        <label htmlFor="playerAge" className="form-label">Player Age:</label>
+                                        <label htmlFor="playerAge" className="form-label" style={{ color: '#fff' }}>Player Age:</label>
                                         <input
                                             type="text"
                                             name="playerAge"
@@ -181,7 +181,7 @@ const PlayerUpdateProfile = () => {
                                     </div>
 
                                     <div className="mb-3">
-                                        <label htmlFor="playerMobile" className="form-label">Mobile:</label>
+                                        <label htmlFor="playerMobile" className="form-label" style={{ color: '#fff' }}>Mobile:</label>
                                         <input
                                             type="text"
                                             name="playerMobile"
@@ -195,7 +195,7 @@ const PlayerUpdateProfile = () => {
                                     </div>
 
                                     <div className="mb-3">
-                                        <label htmlFor="playerCountry" className="form-label">Country:</label>
+                                        <label htmlFor="playerCountry" className="form-label" style={{ color: '#fff' }}>Country:</label>
                                         <select
                                             name="playerCountry"
                                             value={playerProfile.playerCountry}
@@ -215,7 +215,7 @@ const PlayerUpdateProfile = () => {
                                     </div>
 
                                     <div className="mb-3">
-                                        <label htmlFor="playerPosition" className="form-label">Position:</label>
+                                        <label htmlFor="playerPosition" className="form-label" style={{ color: '#fff' }}>Position:</label>
                                         <select
                                             name="playerPosition"
                                             value={playerProfile.playerPosition}
@@ -239,7 +239,7 @@ const PlayerUpdateProfile = () => {
                                     </div>
 
                                     <div className="mb-3">
-                                        <label htmlFor="playerAddress" className="form-label">Address:</label>
+                                        <label htmlFor="playerAddress" className="form-label" style={{ color: '#fff' }}>Address:</label>
                                         <input
                                             type="text"
                                             name="playerAddress"
@@ -273,6 +273,7 @@ const PlayerUpdateProfile = () => {
             </div>
             <CommonFooter />
         </div>
+
     );
 };
 

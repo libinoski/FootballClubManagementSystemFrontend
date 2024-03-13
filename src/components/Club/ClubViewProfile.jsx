@@ -59,67 +59,82 @@ const ClubViewProfile = () => {
     }, [navigate]);
 
     return (
-        <div>
-            <ClubNavbar/>
-            <div className="container" style={{ paddingTop: '56px', paddingBottom: '80px' }}>
-                <div className="row justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
-                    <div className="col-12 col-md-10 col-lg-8">
-                        <div className="card shadow-lg mb-5 bg-body rounded" style={{ borderRadius: '15px', overflow: 'hidden' }}>
-                            <div className="bg-primary" style={{ borderRadius: '15px 15px 0 0', padding: '20px', color: '#ffffff' }}>
-                                <h2 className="text-center">Club Profile</h2>
+<div style={{ background: 'linear-gradient(to right, #0f0c29, #302b63, #24243e)', color: '#fff', minHeight: '100vh' }}>
+    <ClubNavbar/>
+    <div className="container" style={{ paddingTop: '56px', paddingBottom: '80px' }}>
+        <div className="row justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
+            <div className="col-12 col-md-10 col-lg-8">
+                <div className="card shadow-lg mb-5 bg-transparent border-0 rounded" style={{ borderRadius: '15px', overflow: 'hidden' }}>
+                    {isLoading ? (
+                        <div className="card-body d-flex justify-content-center align-items-center" style={{ minHeight: '300px' }}>
+                            <div className="spinner-border text-primary" role="status">
+                                <span className="visually-hidden">Loading...</span>
                             </div>
-                            {isLoading ? (
-                                <div className="card-body d-flex justify-content-center align-items-center" style={{ minHeight: '300px' }}>
-                                    <div className="spinner-border text-primary" role="status">
-                                        <span className="visually-hidden">Loading...</span>
-                                    </div>
-                                </div>
-                            ) : clubProfile ? (
-                                <div className="card-body">
-                                    <div className="row g-4 align-items-center">
-                                        <div className="col-12 col-md-5 d-flex justify-content-center">
-                                            <img
-                                                src={clubProfile.clubImage}
-                                                alt="Club"
-                                                className="img-thumbnail"
-                                                style={{ width: '250px', height: '250px', objectFit: 'cover', borderRadius: '50%', border: '5px solid #f8f9fa' }}
-                                            />
-                                        </div>
-                                        <div className="col-12 col-md-7">
-                                            <h3 className="mb-3 text-primary">{clubProfile.managerName}</h3>
-                                            <p className="mb-2"><strong>Club Email:</strong> {clubProfile.clubEmail}</p>
-                                            <p className="mb-2"><strong>Club Address:</strong> {clubProfile.clubAddress}</p>
-                                            <p className="mb-2"><strong>Manager Name:</strong> {clubProfile.managerName}</p>
-                                            <p className="mb-2"><strong>Manager Email:</strong> {clubProfile.managerEmail}</p>
-                                            <p className="mb-2"><strong>Manager Mobile:</strong> {clubProfile.managerMobile}</p>
-                                        </div>
-                                    </div>
-                                    <div className="row justify-content-center mt-4">
-                                        <div className="col-12 col-md-7 d-flex justify-content-center">
-                                            <img
-                                                src={clubProfile.managerImage}
-                                                alt="Manager"
-                                                className="img-thumbnail"
-                                                style={{ width: '150px', height: '150px', objectFit: 'cover', borderRadius: '50%', border: '5px solid #f8f9fa' }}
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="d-flex justify-content-center gap-3 mt-4">
-                                        <Link to="/clubUpdateProfile" className="btn btn-primary" style={{ padding: '10px 20px', borderRadius: '25px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)' }}>Update Details</Link>
-                                        {/* Add the same button for changing image here */}
-                                    </div>
-                                </div>
-                            ) : (
-                                <div className="card-body d-flex justify-content-center align-items-center" style={{ minHeight: '300px' }}>
-                                    <p>No profile found.</p>
-                                </div>
-                            )}
                         </div>
-                    </div>
+                    ) : clubProfile ? (
+                        <div className="card-body">
+                            <div className="row g-4 align-items-center">
+                                <div className="col-12 col-md-5 d-flex justify-content-center">
+                                    <img
+                                        src={clubProfile.clubImage}
+                                        alt="Club"
+                                        className="img-thumbnail"
+                                        style={{ width: '250px', height: '250px', objectFit: 'cover', borderRadius: '50%', border: '5px solid #f8f9fa' }}
+                                    />
+                                </div>
+                                <div className="col-12 col-md-7">
+                                    <div className="mb-3">
+                                        <label className="text-primary fw-bold mb-0">Manager Name:</label>
+                                        <p className="mb-2" style={{ color: '#fff', fontWeight: 'bold' }}>{clubProfile.managerName}</p>
+                                    </div>
+                                    <div className="mb-3">
+                                        <label className="text-primary fw-bold mb-0">Club Email:</label>
+                                        <p className="mb-2" style={{ color: '#fff', fontWeight: 'bold' }}>{clubProfile.clubEmail}</p>
+                                    </div>
+                                    <div className="mb-3">
+                                        <label className="text-primary fw-bold mb-0">Club Address:</label>
+                                        <p className="mb-2" style={{ color: '#fff', fontWeight: 'bold' }}>{clubProfile.clubAddress}</p>
+                                    </div>
+                                    <div className="mb-3">
+                                        <label className="text-primary fw-bold mb-0">Manager Email:</label>
+                                        <p className="mb-2" style={{ color: '#fff', fontWeight: 'bold' }}>{clubProfile.managerEmail}</p>
+                                    </div>
+                                    <div className="mb-3">
+                                        <label className="text-primary fw-bold mb-0">Manager Mobile:</label>
+                                        <p className="mb-0" style={{ color: '#fff', fontWeight: 'bold' }}>{clubProfile.managerMobile}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="row justify-content-center mt-4">
+                                <div className="col-12 col-md-7 d-flex justify-content-center">
+                                    <img
+                                        src={clubProfile.managerImage}
+                                        alt="Manager"
+                                        className="img-thumbnail"
+                                        style={{ width: '150px', height: '150px', objectFit: 'cover', borderRadius: '50%', border: '5px solid #f8f9fa' }}
+                                    />
+                                </div>
+                            </div>
+                            <div className="d-flex justify-content-center gap-3 mt-4">
+                                <Link to="/clubUpdateProfile" className="btn btn-primary" style={{ padding: '10px 20px', borderRadius: '25px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)' }}>Update Details</Link>
+                                {/* Add the same button for changing image here */}
+                            </div>
+                        </div>
+                    ) : (
+                        <div className="card-body d-flex justify-content-center align-items-center" style={{ minHeight: '300px' }}>
+                            <p>No profile found.</p>
+                        </div>
+                    )}
                 </div>
             </div>
-            <CommonFooter />
         </div>
+    </div>
+    <CommonFooter />
+</div>
+
+
+
+
     );
 };
 

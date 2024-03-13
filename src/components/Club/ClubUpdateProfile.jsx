@@ -140,16 +140,16 @@ const ClubUpdateProfile = () => {
     };
 
     return (
-        <div>
+        <div style={{ background: 'linear-gradient(to right, #0f0c29, #302b63, #24243e)', color: '#fff', minHeight: '100vh' }}>
             <ClubNavbar />
             <div className="container-fluid" style={{ paddingTop: '56px', paddingBottom: '80px' }}>
                 <div className="row">
                     <div className="col-12 d-flex align-items-center justify-content-center">
-                        <div className="card" style={{ width: '100%', maxWidth: '500px', backgroundColor: 'rgba(255, 255, 255, 0.5)', border: Object.keys(errorMessages).length > 0 ? '1px solid red' : 'none' }}>
+                        <div className="card bg-transparent" style={{ width: '100%', maxWidth: '500px', border: Object.keys(errorMessages).length > 0 ? '1px solid red' : 'none' }}>
                             <div className="card-body">
                                 <form onSubmit={handleSubmit} noValidate>
                                     <div className="mb-3">
-                                        <label htmlFor="clubName" className="form-label">Club Name:</label>
+                                        <label htmlFor="clubName" className="form-label" style={{ color: '#fff' }}>Club Name:</label>
                                         <input
                                             type="text"
                                             name="clubName"
@@ -163,7 +163,7 @@ const ClubUpdateProfile = () => {
                                     </div>
 
                                     <div className="mb-3">
-                                        <label htmlFor="managerMobile" className="form-label">Manager Mobile:</label>
+                                        <label htmlFor="managerMobile" className="form-label" style={{ color: '#fff' }}>Manager Mobile:</label>
                                         <input
                                             type="text"
                                             name="managerMobile"
@@ -177,7 +177,7 @@ const ClubUpdateProfile = () => {
                                     </div>
 
                                     <div className="mb-3">
-                                        <label htmlFor="clubAddress" className="form-label">Address:</label>
+                                        <label htmlFor="clubAddress" className="form-label" style={{ color: '#fff' }}>Address:</label>
                                         <input
                                             type="text"
                                             name="clubAddress"
@@ -191,7 +191,7 @@ const ClubUpdateProfile = () => {
                                     </div>
 
                                     <div className="mb-3">
-                                        <label htmlFor="managerName" className="form-label">Manager Name:</label>
+                                        <label htmlFor="managerName" className="form-label" style={{ color: '#fff' }}>Manager Name:</label>
                                         <input
                                             type="text"
                                             name="managerName"
@@ -225,6 +225,7 @@ const ClubUpdateProfile = () => {
             </div>
             <CommonFooter />
         </div>
+
     );
 };
 

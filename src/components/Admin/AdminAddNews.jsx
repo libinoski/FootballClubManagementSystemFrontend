@@ -90,42 +90,52 @@ const AdminAddNews = () => {
     };
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-            <AdminNavbar />
-            <div className="container-fluid" style={{ flex: 1, paddingTop: '56px', paddingBottom: '80px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <div className="row" style={{ width: '100%' }}>
-                    <div className="col-lg-12 d-flex align-items-center justify-content-center">
-                        <div className="container py-5">
-                            <div className="card" style={{ boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)', transition: '0.3s', borderRadius: '5px', ...(validationErrors && Object.keys(validationErrors).length > 0 ? { border: '1px solid #dc3545' } : {}) }}>
-                                <div className="card-body">
-                                    <form onSubmit={handleSubmit}>
-                                        <div className="mb-3">
-                                            <label htmlFor="footballNewsTitle" className="form-label">Title</label>
-                                            <input type="text" className={`form-control ${validationErrors.footballNewsTitle ? 'is-invalid' : ''}`} id="footballNewsTitle" name="footballNewsTitle" value={newsData.footballNewsTitle} onChange={handleInputChange} />
-                                            {validationErrors.footballNewsTitle && <div className="invalid-feedback">{validationErrors.footballNewsTitle}</div>}
-                                        </div>
-                                        <div className="mb-3">
-                                            <label htmlFor="footballNewsContent" className="form-label">Content</label>
-                                            <textarea className={`form-control ${validationErrors.footballNewsContent ? 'is-invalid' : ''}`} id="footballNewsContent" name="footballNewsContent" value={newsData.footballNewsContent} onChange={handleInputChange} rows="10" style={{ width: '100%', minHeight: '200px' }}></textarea>
-                                            {validationErrors.footballNewsContent && <div className="invalid-feedback">{validationErrors.footballNewsContent}</div>}
-                                        </div>
-                                        <div className="mb-3">
-                                            <label htmlFor="footballNewsImage" className="form-label">Image</label>
-                                            <input type="file" className={`form-control ${validationErrors.footballNewsImage ? 'is-invalid' : ''}`} id="footballNewsImage" name="footballNewsImage" onChange={handleFileChange} />
-                                            {validationErrors.footballNewsImage && <div className="invalid-feedback">{validationErrors.footballNewsImage}</div>}
-                                        </div>
-                                        <div className="text-center">
-                                            <button type="submit" className="btn btn-primary" disabled={isLoading}>{isLoading ? 'Adding...' : 'Add News'}</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <CommonFooter />
+<div style={{ background: 'linear-gradient(to right, #000000, #000000)', color: '#fff', minHeight: '100vh' }}>
+  <AdminNavbar />
+
+  <div className="container-fluid" style={{ paddingTop: '56px', paddingBottom: '80px' }}>
+    <div className="row justify-content-center">
+      <div className="col-12 col-md-6">
+        <div className="card bg-transparent border-0" style={{ boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)', transition: '0.3s', borderRadius: '10px' }}>
+          <div className="card-body">
+            <form onSubmit={handleSubmit}>
+              <div className="mb-3">
+                <label htmlFor="footballNewsTitle" className="form-label" style={{ color: '#fff' }}>Title</label>
+                <input type="text" className={`form-control ${validationErrors.footballNewsTitle ? 'is-invalid' : ''}`} id="footballNewsTitle" name="footballNewsTitle" value={newsData.footballNewsTitle} onChange={handleInputChange} style={{ borderRadius: '5px' }} />
+                {validationErrors.footballNewsTitle && <div className="invalid-feedback" style={{ color: 'red', marginTop: '5px' }}>{validationErrors.footballNewsTitle}</div>}
+              </div>
+              <div className="mb-3">
+                <label htmlFor="footballNewsContent" className="form-label" style={{ color: '#fff' }}>Content</label>
+                <textarea className={`form-control ${validationErrors.footballNewsContent ? 'is-invalid' : ''}`} id="footballNewsContent" name="footballNewsContent" value={newsData.footballNewsContent} onChange={handleInputChange} rows="10" style={{ width: '100%', minHeight: '200px', borderRadius: '5px' }}></textarea>
+                {validationErrors.footballNewsContent && <div className="invalid-feedback" style={{ color: 'red', marginTop: '5px' }}>{validationErrors.footballNewsContent}</div>}
+              </div>
+              <div className="mb-3">
+                <label htmlFor="footballNewsImage" className="form-label" style={{ color: '#fff' }}>Image</label>
+                <input type="file" className={`form-control ${validationErrors.footballNewsImage ? 'is-invalid' : ''}`} id="footballNewsImage" name="footballNewsImage" onChange={handleFileChange} style={{ borderRadius: '5px' }} />
+                {validationErrors.footballNewsImage && <div className="invalid-feedback" style={{ color: 'red', marginTop: '5px' }}>{validationErrors.footballNewsImage}</div>}
+              </div>
+              <div className="text-center">
+                <button type="submit" className="btn btn-primary" disabled={isLoading} style={{ borderRadius: '20px' }}>{isLoading ? 'Adding...' : 'Add News'}</button>
+              </div>
+            </form>
+          </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <CommonFooter />
+</div>
+
+
+
+
+
+
+
+
+
+
     );
 };
 

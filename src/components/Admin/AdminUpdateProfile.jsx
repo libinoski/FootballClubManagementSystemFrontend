@@ -138,16 +138,16 @@ const AdminUpdateProfile = () => {
     };
 
     return (
-        <div>
+<div style={{ background:'linear-gradient(to right, #000000, #000000)'   , color: '#fff', display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
             <AdminNavbar />
-            <div className="container-fluid" style={{ paddingTop: '56px', paddingBottom: '80px' }}>
+            <div className="container-fluid flex-grow-1" style={{ paddingTop: '56px', paddingBottom: '80px' }}>
                 <div className="row">
                     <div className="col-12 d-flex align-items-center justify-content-center">
-                        <div className="card" style={{ width: '100%', maxWidth: '500px', backgroundColor: 'rgba(255, 255, 255, 0.5)', border: Object.keys(errorMessages).length > 0 ? '1px solid red' : 'none' }}>
+                        <div className="card bg-transparent" style={{ width: '100%', maxWidth: '500px', border: Object.keys(errorMessages).length > 0 ? '1px solid red' : 'none' }}>
                             <div className="card-body">
                                 <form onSubmit={handleSubmit} noValidate>
                                     <div className="mb-3">
-                                        <label htmlFor="adminName" className="form-label">Admin Name:</label>
+                                        <label htmlFor="adminName" className="form-label" style={{ color: '#fff' }}>Admin Name:</label>
                                         <input
                                             type="text"
                                             name="adminName"
@@ -161,7 +161,7 @@ const AdminUpdateProfile = () => {
                                     </div>
 
                                     <div className="mb-3">
-                                        <label htmlFor="adminMobile" className="form-label">Mobile:</label>
+                                        <label htmlFor="adminMobile" className="form-label" style={{ color: '#fff' }}>Mobile:</label>
                                         <input
                                             type="text"
                                             name="adminMobile"
@@ -175,7 +175,7 @@ const AdminUpdateProfile = () => {
                                     </div>
 
                                     <div className="mb-3">
-                                        <label htmlFor="adminAddress" className="form-label">Address:</label>
+                                        <label htmlFor="adminAddress" className="form-label" style={{ color: '#fff' }}>Address:</label>
                                         <input
                                             type="text"
                                             name="adminAddress"
@@ -190,7 +190,7 @@ const AdminUpdateProfile = () => {
 
                                     <div className="text-center">
                                         {showConfirmation ? (
-                                            <div>
+                                            <div style={{ color: '#fff' }}>
                                                 <p>Are you sure you want to update the admin profile?</p>
                                                 <button type="button" className="btn btn-secondary mr-2" onClick={() => setShowConfirmation(false)}>Cancel</button>
                                                 <button type="button" className="btn btn-success" onClick={handleConfirmSubmit}>Confirm</button>
@@ -209,6 +209,9 @@ const AdminUpdateProfile = () => {
             </div>
             <CommonFooter />
         </div>
+
+
+
     );
 };
 

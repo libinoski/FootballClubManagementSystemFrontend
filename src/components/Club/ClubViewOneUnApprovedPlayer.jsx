@@ -146,7 +146,7 @@ const ClubViewOneUnapprovedPlayer = () => {
                                                     <p className="mb-2"><strong>Email:</strong> {playerDetails.playerEmail}</p>
                                                     <p className="mb-2"><strong>Mobile:</strong> {playerDetails.playerMobile}</p>
                                                     <p className="mb-2"><strong>Address:</strong> {playerDetails.playerAddress}</p>
-                                                    <p className="mb-2"><strong>Date of Birth:</strong> {playerDetails.playerDOB}</p>
+                                                    <p className="mb-2"><strong>Age:</strong> {playerDetails.playerAge}</p>
                                                 </div>
                                             </div>
                                             <div className="card-footer d-flex justify-content-center bg-transparent border-top-0">

@@ -64,17 +64,18 @@ const AdminLogin = () => {
     };
 
     // Define navigateToSignUp function here
-    const navigateToSignUp = () => {
-        navigate('/adminRegistration'); // Change '/signup' to the path you use for your signup page
-    };
+    // const navigateToSignUp = () => {
+    //     navigate('/adminRegistration'); // Change '/signup' to the path you use for your signup page
+    // };
 
 
     const hasErrors = Object.keys(errorMessages).length > 0;
 
 
     return (
-        <div style={{ background: 'linear-gradient(to right, #0f0c29, #302b63, #24243e)', color: '#fff', minHeight: '100vh' }}>
-            {/* Navbar */}
+<div style={{ background:'linear-gradient(to right, #000000, #000000)'   , color: '#fff', display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+
+{/* Navbar */}
             <nav className="navbar navbar-dark" style={{ 
     backgroundColor: 'rgba(255, 255, 255, 0.1)', // Light transparent background
     backdropFilter: 'blur(10px)',
@@ -155,7 +156,7 @@ const AdminLogin = () => {
                             </div>
                         </form>
 
-                        <div className="text-center mt-3">
+                        {/* <div className="text-center mt-3">
                             <p>Don't have an account?</p>
                             <button onClick={navigateToSignUp} className="btn btn-primary rounded-pill" style={{
                                 background: 'linear-gradient(to right, #4169E1, #0000FF)',
@@ -169,7 +170,7 @@ const AdminLogin = () => {
                             }}>
                                 Sign up
                             </button>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

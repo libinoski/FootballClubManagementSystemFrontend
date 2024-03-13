@@ -101,7 +101,7 @@ const ClubRegistration = () => {
     };
 
     return (
-        <div style={{ background: 'linear-gradient(to right, #0f0c29, #302b63, #24243e)', color: '#fff', minHeight: '100vh' }}>            {/* Navbar */}
+        <div style={{ background: 'linear-gradient(to right, #1B2631, #3C4752, #556677)', color: '#fff', minHeight: '100vh' }}>            {/* Navbar */}
             <nav className="navbar navbar-dark" style={{
                 backgroundColor: 'rgba(255, 255, 255, 0.1)', // Light transparent background
                 backdropFilter: 'blur(10px)',

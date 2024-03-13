@@ -44,7 +44,7 @@ const PlayerLogin = () => {
                         alert(errorMessage);
                         break;
                     case 500:
-                        alert(data.message || 'Internal server error. Please try again later.');
+                        alert(data.error || 'Internal server error. Please try again later.');
                         break;
                     default:
                         alert('An error occurred. Please try again.');
@@ -69,7 +69,7 @@ const PlayerLogin = () => {
     const hasErrors = Object.keys(errorMessages).length > 0;
 
     return (
-        <div style={{ background: 'linear-gradient(to right, #0f0c29, #302b63, #24243e)', color: '#fff', minHeight: '100vh' }}>
+<div style={{ background:'linear-gradient(to right, #000000, #000000)'   , color: '#fff', display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
 <nav className="navbar navbar-dark" style={{ 
     backgroundColor: 'rgba(255, 255, 255, 0.1)', // Light transparent background
     backdropFilter: 'blur(10px)',

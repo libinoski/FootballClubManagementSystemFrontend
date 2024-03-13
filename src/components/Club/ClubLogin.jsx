@@ -69,7 +69,7 @@ const ClubLogin = () => {
     const hasErrors = Object.keys(errorMessages).length > 0;
 
     return (
-        <div style={{ background: 'linear-gradient(to right, #0f0c29, #302b63, #24243e)', color: '#fff', minHeight: '100vh' }}>
+        <div style={{ background:'linear-gradient(to right, #082B4C, #1B3A6B)',  color: '#fff', minHeight: '100vh' }}>
 
             <nav className="navbar navbar-dark" style={{
                 backgroundColor: 'rgba(255, 255, 255, 0.1)', // Light transparent background

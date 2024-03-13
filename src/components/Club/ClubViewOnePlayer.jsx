@@ -186,7 +186,7 @@ const ClubViewOnePlayer = () => {
                                             <p className="mb-2" style={{ fontSize: '1.125rem' }}><strong>Email:</strong> {playerDetails.playerEmail}</p>
                                             <p className="mb-2" style={{ fontSize: '1.125rem' }}><strong>Mobile:</strong> {playerDetails.playerMobile}</p>
                                             <p className="mb-2" style={{ fontSize: '1.125rem' }}><strong>Address:</strong> {playerDetails.playerAddress}</p>
-                                            <p className="mb-2" style={{ fontSize: '1.125rem' }}><strong>Date of Birth:</strong> {playerDetails.playerDOB}</p>
+                                            <p className="mb-2" style={{ fontSize: '1.125rem' }}><strong>Age:</strong> {playerDetails.playerAge}</p>
                                             <p className="mb-2" style={{ fontSize: '1.125rem' }}><strong>Country:</strong> {playerDetails.playerCountry}</p>
                                             <p className="mb-2" style={{ fontSize: '1.125rem' }}><strong>Position:</strong> {playerDetails.playerPosition}</p>
                                             <p className="mb-2" style={{ fontSize: '1.125rem' }}><strong>Manager Name:</strong> {playerDetails.managerName}</p>

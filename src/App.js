@@ -3,7 +3,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AdminLogin from './components/Admin/AdminLogin';
-import AdminRegistration from './components/Admin/AdminRegistration';
+// import AdminRegistration from './components/Admin/AdminRegistration';
 import ClubLogin from './components/Club/ClubLogin';
 import ClubRegistration from './components/Club/ClubRegistration';
 import PlayerRegistration from './components/Player/PlayerRegistration';
@@ -30,6 +30,14 @@ import ClubViewAllUnapprovedPlayers from './components/Club/ClubViewAllUnApprove
 import ClubViewOneUnapprovedPlayer from './components/Club/ClubViewOneUnApprovedPlayer';
 import ClubViewAllPlayers from './components/Club/ClubViewAllPlayers';
 import ClubViewOnePlayer from './components/Club/ClubViewOnePlayer';
+import AdminAddMatch from './components/Admin/AdminAddMatch';
+import AdminViewAllMatches from './components/Admin/AdminViewAllMatches';
+import AdminViewOneMatch from './components/Admin/AdminViewOneMatch';
+import AdminViewOneEndedMatch from './components/Admin/AdminViewOneEndedMatch';
+import AdminAddMatchPoint from './components/Admin/AdminAddMatchPoint';
+import AdminViewAllEndedlMatches from './components/Admin/AdminViewAllEndedMatches';
+import AdminViewAllMatchPoints from './components/Admin/AdminViewAllMatchPoints';
+import AdminChangePassword from './components/Admin/AdminChangePassword';
 
 
 
@@ -44,13 +52,21 @@ function App() {
         <Route path='/' element={<CommonHomePage />} />
 
         <Route path='/adminLogin' element={<AdminLogin />} />
-        <Route path='/adminRegistration' element={<AdminRegistration />} />
+        <Route path='/adminChangePassword' element={<AdminChangePassword />} />
+        {/* <Route path='/adminRegistration' element={<AdminRegistration />} /> */}
         <Route path='/adminNavbar' element={<AdminNavbar />} />
         <Route path='/adminViewProfile' element={<AdminViewProfile />} />
         <Route path='/adminUpdateProfile' element={<AdminUpdateProfile />} />
         <Route path='/adminAddNews' element={<AdminAddNews />} />
         <Route path='/adminViewAllNews' element={<AdminViewAllNews />} />
         <Route path='/adminViewOneNews' element={<AdminViewOneNews />} />
+        <Route path='/adminAddMatch' element={<AdminAddMatch />} />
+        <Route path='/adminViewAllMatches' element={<AdminViewAllMatches />} />
+        <Route path='/adminViewOneMatch' element={<AdminViewOneMatch />} />
+        <Route path='/adminViewAllEndedMatches' element={<AdminViewAllEndedlMatches />} />
+        <Route path='/adminViewOneEndedMatch' element={<AdminViewOneEndedMatch />} />
+        <Route path='/adminAddMatchPoint' element={<AdminAddMatchPoint />} />
+        <Route path='/adminViewAllMatchPoints' element={<AdminViewAllMatchPoints />} />
         
         <Route path='/clubRegistration' element={<ClubRegistration />} />
         <Route path='/clubLogin' element={<ClubLogin />} />
