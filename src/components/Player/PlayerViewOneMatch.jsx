@@ -48,7 +48,7 @@ const PlayerViewOneMatch = () => {
                 const playerId = sessionStorage.getItem('playerId');
                 const matchId = sessionStorage.getItem('matchId');
                 const response = await axios.post(
-                    'http://localhost:4040/api/player/viewOneMatch',
+                    'http://localhost:4040/api/player/playerViewOneMatch',
                     { playerId, matchId },
                     {
                         headers: {

@@ -50,6 +50,9 @@ import ClubViewAllLeaveRequests from './components/Club/ClubViewAllLeaveRequests
 import AdminViewAllClubs from './components/Admin/AdminViewAllClubs';
 import PlayerViewAllClubs from './components/Player/PlayerViewAllClubs';
 import ClubViewAllClubs from './components/Club/ClubViewAllClubs';
+import PlayerViewAllNotifications from './components/Player/PlayerViewAllNotifications';
+import PlayerViewOneNotification from './components/Player/PlayerViewOneNotification';
+import PlayerViewOneMatch from './components/Player/PlayerViewOneMatch';
 
 
 
@@ -109,9 +112,12 @@ function App() {
         <Route path='/playerViewAllNews' element={<PlayerViewAllNews />} />
         <Route path='/playerViewOneNews' element={<PlayerViewOneNews />} />
         <Route path='/playerViewAllMatches' element={<PlayerViewAllMatches />} />
+        <Route path='/playerViewOneMatch' element={<PlayerViewOneMatch />} />
         <Route path='/playerViewAllMatchPoints' element={<PlayerViewAllMatchPoints />} />
         <Route path='/playerSendLeaveRequestToClub' element={<PlayerSendLeaveRequestToClub />} />
         <Route path='/playerViewAllClubs' element={<PlayerViewAllClubs />} />
+        <Route path='/playerViewAllNotifications' element={<PlayerViewAllNotifications />} />
+        <Route path='/playerViewOneNotification' element={<PlayerViewOneNotification />} />
 
         
 
