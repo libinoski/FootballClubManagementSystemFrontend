@@ -91,7 +91,7 @@ const AdminViewAllNews = () => {
                                 <div className="card h-100 border-0" style={{ background: 'rgba(255, 255, 255, 0.2)', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }}>
                                     <img src={news.footballNewsImage} className="card-img-top img-fluid" alt="News" style={{ objectFit: 'contain', maxHeight: '200px' }} />
                                     <div className="card-body text-center" style={{ padding: '20px' }}>
-                                        <h5 className="card-title mb-4" style={{ background: 'rgba(255, 255, 255, 0.5)', borderRadius: '5px', padding: '10px', color: '#000', backdropFilter: 'blur(5px)', fontWeight: 'bold' }}>{news.footballNewsTItle}</h5>
+                                        <h5 className="card-title mb-4" style={{ background: 'rgba(255, 255, 255, 0.5)', borderRadius: '5px', padding: '10px', color: '#000', backdropFilter: 'blur(5px)', fontWeight: 'bold' }}>{news.footballNewsTitle}</h5>
                                         <p className="card-text text-white fw-bold mb-4">{formatDate(news.addedDate)}</p>
                                         <p className="card-text text-white fw-bold">{news.footballNewsContent}</p>
                                     </div>

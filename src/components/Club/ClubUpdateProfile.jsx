@@ -140,7 +140,7 @@ const ClubUpdateProfile = () => {
     };
 
     return (
-        <div style={{ background: 'linear-gradient(to right, #0f0c29, #302b63, #24243e)', color: '#fff', minHeight: '100vh' }}>
+<div style={{ background: 'linear-gradient(to right, #000000, #000000)', color: '#fff', minHeight: '100vh' }}>
             <ClubNavbar />
             <div className="container-fluid" style={{ paddingTop: '56px', paddingBottom: '80px' }}>
                 <div className="row">
