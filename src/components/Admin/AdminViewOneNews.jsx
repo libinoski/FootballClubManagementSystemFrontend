@@ -123,7 +123,7 @@ const AdminViewOneNews = () => {
                             </div>
                             <div className="col-md-6 d-flex flex-column justify-content-between">
                                 <div className="card-body">
-                                    <h5 className="card-title text-center mb-4" style={{ fontSize: '24px', fontWeight: 'bold' }}>{newsDetails.footballNewsTItle}</h5>
+                                    <h5 className="card-title text-center mb-4" style={{ fontSize: '24px', fontWeight: 'bold' }}>{newsDetails.footballNewsTitle}</h5>
                                     <p className="card-text" style={{ fontSize: '18px', lineHeight: '1.6' }}>{newsDetails.footballNewsContent}</p>
                                     <p className="card-text" style={{ backgroundColor: 'yellow', padding: '5px', borderRadius: '5px', color: '#333' }}>Published on: {formatDate(newsDetails.addedDate)}</p>
                                 </div>

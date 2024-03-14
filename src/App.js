@@ -38,6 +38,8 @@ import AdminAddMatchPoint from './components/Admin/AdminAddMatchPoint';
 import AdminViewAllEndedlMatches from './components/Admin/AdminViewAllEndedMatches';
 import AdminViewAllMatchPoints from './components/Admin/AdminViewAllMatchPoints';
 import AdminChangePassword from './components/Admin/AdminChangePassword';
+import ClubSendNotificationToPlayer from './components/Club/ClubSendNotificationToPlayer';
+import ClubAddOneInjuryUpdate from './components/Club/ClubAddOneInjuryUpdate';
 
 
 
@@ -79,6 +81,8 @@ function App() {
         <Route path='/clubViewOneUnapprovedPlayer' element={<ClubViewOneUnapprovedPlayer />} />
         <Route path='/clubViewAllPlayers' element={<ClubViewAllPlayers/>} />
         <Route path='/clubViewOnePlayer' element={<ClubViewOnePlayer/>} />
+        <Route path='/clubSendNotificationToPlayer' element={<ClubSendNotificationToPlayer/>} />
+        <Route path='/clubAddOneInjuryUpdate' element={<ClubAddOneInjuryUpdate/>} />
 
 
         <Route path='/playerRegistration' element={<PlayerRegistration />} />

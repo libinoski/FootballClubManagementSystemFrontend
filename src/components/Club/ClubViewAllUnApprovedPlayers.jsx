@@ -64,7 +64,7 @@ const ClubViewAllUnapprovedPlayers = () => {
     };
 
     return (
-        <div className="d-flex flex-column" style={{ minHeight: '100vh' }}>
+<div style={{ background: 'linear-gradient(to right, #000000, #000000)', color: '#fff', minHeight: '100vh' }}>
             <ClubNavbar />
             <div className="flex-grow-1 d-flex align-items-center justify-content-center" style={{ backgroundColor: '#f8f9fa', padding: '70px 0' }}>
                 <div className="container">
