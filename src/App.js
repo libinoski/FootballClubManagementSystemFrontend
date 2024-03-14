@@ -40,6 +40,16 @@ import AdminViewAllMatchPoints from './components/Admin/AdminViewAllMatchPoints'
 import AdminChangePassword from './components/Admin/AdminChangePassword';
 import ClubSendNotificationToPlayer from './components/Club/ClubSendNotificationToPlayer';
 import ClubAddOneInjuryUpdate from './components/Club/ClubAddOneInjuryUpdate';
+import ClubViewAllMatches from './components/Club/ClubViewAllMatches';
+import ClubViewOneMatch from './components/Club/ClubViewOneMatch';
+import PlayerViewAllMatches from './components/Player/PlayerViewAllMatches';
+import ClubViewAllMatchPoints from './components/Club/ClubViewAllMatchPoints';
+import PlayerViewAllMatchPoints from './components/Player/PlayerViewAllMatchPoints';
+import PlayerSendLeaveRequestToClub from './components/Player/PlayerSendLeaveRequestToClub';
+import ClubViewAllLeaveRequests from './components/Club/ClubViewAllLeaveRequests';
+import AdminViewAllClubs from './components/Admin/AdminViewAllClubs';
+import PlayerViewAllClubs from './components/Player/PlayerViewAllClubs';
+import ClubViewAllClubs from './components/Club/ClubViewAllClubs';
 
 
 
@@ -69,6 +79,7 @@ function App() {
         <Route path='/adminViewOneEndedMatch' element={<AdminViewOneEndedMatch />} />
         <Route path='/adminAddMatchPoint' element={<AdminAddMatchPoint />} />
         <Route path='/adminViewAllMatchPoints' element={<AdminViewAllMatchPoints />} />
+        <Route path='/adminViewAllClubs' element={<AdminViewAllClubs />} />
         
         <Route path='/clubRegistration' element={<ClubRegistration />} />
         <Route path='/clubLogin' element={<ClubLogin />} />
@@ -83,6 +94,11 @@ function App() {
         <Route path='/clubViewOnePlayer' element={<ClubViewOnePlayer/>} />
         <Route path='/clubSendNotificationToPlayer' element={<ClubSendNotificationToPlayer/>} />
         <Route path='/clubAddOneInjuryUpdate' element={<ClubAddOneInjuryUpdate/>} />
+        <Route path='/clubViewAllMatches' element={<ClubViewAllMatches/>} />
+        <Route path='/clubViewOneMatch' element={<ClubViewOneMatch/>} />
+        <Route path='/clubViewAllMatchPoints' element={<ClubViewAllMatchPoints/>} />
+        <Route path='/clubViewAllLeaveRequests' element={<ClubViewAllLeaveRequests/>} />
+        <Route path='/ClubViewAllClubs' element={<ClubViewAllClubs/>} />
 
 
         <Route path='/playerRegistration' element={<PlayerRegistration />} />
@@ -92,6 +108,10 @@ function App() {
         <Route path='/playerUpdateProfile' element={<PlayerUpdateProfile />} />
         <Route path='/playerViewAllNews' element={<PlayerViewAllNews />} />
         <Route path='/playerViewOneNews' element={<PlayerViewOneNews />} />
+        <Route path='/playerViewAllMatches' element={<PlayerViewAllMatches />} />
+        <Route path='/playerViewAllMatchPoints' element={<PlayerViewAllMatchPoints />} />
+        <Route path='/playerSendLeaveRequestToClub' element={<PlayerSendLeaveRequestToClub />} />
+        <Route path='/playerViewAllClubs' element={<PlayerViewAllClubs />} />
 
         
 

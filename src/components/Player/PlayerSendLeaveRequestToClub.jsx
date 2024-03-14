@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import ClubNavbar from './ClubNabvar';
+import PlayerNavbar from './PlayerNavbar';
 import CommonFooter from '../Common/CommonFooter';
 
-const ClubSendNotificationToPlayer = () => {
-    const [notificationMessage, setNotificationMessage] = useState('');
+
+const PlayerSendLeaveRequestToClub = () => {
+    const [leaveMessage, setLeaveMessage] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState('');
     const navigate = useNavigate(); // Initialize useNavigate hook
@@ -16,11 +17,10 @@ const ClubSendNotificationToPlayer = () => {
         setIsLoading(true);
         try {
             const token = sessionStorage.getItem('token');
-            const clubId = sessionStorage.getItem('clubId');
             const playerId = sessionStorage.getItem('playerId');
             const response = await axios.post(
-                'http://localhost:4040/api/club/clubSendNotificationToPlayer',
-                { clubId, playerId, message: notificationMessage },
+                'http://localhost:4040/api/player/playerSendLeaveRequestToClub',
+                { playerId, message: leaveMessage },
                 {
                     headers: {
                         'token': token,
@@ -30,14 +30,14 @@ const ClubSendNotificationToPlayer = () => {
             );
             if (response.status === 200) {
                 // alert(response.data.message);
-                navigate('/clubViewOnePlayer', { state: { playerId } }); // Navigate to the view one player page with state
+                navigate('/playerViewProfile'); // Navigate to the player dashboard
             }
         } catch (error) {
             if (error.response) {
                 const { status, data } = error.response;
                 switch (status) {
                     case 400:
-                        setError(data.error || 'Validation failed.');
+                        setError(data.errors || 'Validation failed.');
                         break;
                     case 401:
                     case 403:
@@ -63,8 +63,8 @@ const ClubSendNotificationToPlayer = () => {
 
     return (
         <div>
-            <ClubNavbar />
-            <div style={{ background: 'linear-gradient(to right, #000000, #000000)', color: '#fff', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', minHeight: '100vh', paddingTop: '56px' }}>
+            <PlayerNavbar />
+            <div style={{ background: 'linear-gradient(to right, #000000, #000000)', color: '#fff', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', minHeight: '100vh', padding: '20px' }}>
                 <div className="container py-5">
                     <div className="row justify-content-center">
                         <div className="col-lg-6">
@@ -72,20 +72,20 @@ const ClubSendNotificationToPlayer = () => {
                                 <div className="card-body">
                                     <form onSubmit={handleSubmit} noValidate style={{ width: '100%' }}>
                                         <div className="mb-4">
-                                            <label htmlFor="notificationMessage" className="form-label" style={{ fontWeight: '500', color: '#fff' }}>Message:</label>
+                                            <label htmlFor="leaveMessage" className="form-label" style={{ fontWeight: '500', color: '#fff' }}>Message:</label>
                                             <textarea
-                                                value={notificationMessage}
-                                                onChange={(e) => setNotificationMessage(e.target.value)}
+                                                value={leaveMessage}
+                                                onChange={(e) => setLeaveMessage(e.target.value)}
                                                 className="form-control"
-                                                id="notificationMessage"
+                                                id="leaveMessage"
                                                 rows="5"
                                                 style={{ borderRadius: '15px', boxShadow: 'inset 0 2px 4px rgba(0, 0, 0, 0.06)', background: 'transparent', color: '#fff' }}
                                             ></textarea>
                                         </div>
-                                        {error && <div className="alert alert-danger" style={{ borderRadius: '15px' }}>{error}</div>}
+                                        {error && <div className="alert alert-danger" style={{ borderRadius: '15px' }}>{error.message}</div>}
                                         <div className="text-center">
                                             <button type="submit" className={`btn ${isLoading ? 'btn-secondary' : 'btn-primary'}`} disabled={isLoading} style={{ borderRadius: '25px', padding: '10px 30px', transition: 'background-color .3s', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', backgroundImage: 'linear-gradient(45deg, #007bff, #6610f2)', border: 'none' }}>
-                                                {isLoading ? 'Sending...' : 'Send Notification'}
+                                                {isLoading ? 'Sending...' : 'Send Leave Request'}
                                             </button>
                                         </div>
                                     </form>
@@ -98,7 +98,8 @@ const ClubSendNotificationToPlayer = () => {
             <CommonFooter />
         </div>
 
+
     );
 };
 
-export default ClubSendNotificationToPlayer;
+export default PlayerSendLeaveRequestToClub;

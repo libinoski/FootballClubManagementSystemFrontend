@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFutbol, faNewspaper, faSignOutAlt, faKey } from '@fortawesome/free-solid-svg-icons'; // Add faKey to the imports
+import { faFutbol, faNewspaper, faSignOutAlt, faKey, faUsers } from '@fortawesome/free-solid-svg-icons'; // Added faUsers for the new icon
 
 const AdminNavbar = () => {
     return (
@@ -16,7 +16,7 @@ const AdminNavbar = () => {
                         <li className="nav-item dropdown">
                             <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdownProfile" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{ color: '#fff' }}>
                                 <FontAwesomeIcon icon={faKey} className="me-2 text-success" /> {/* Changed icon to faKey */}
-                                Authentication {/* Changed text to Authentication */}
+                                Authentication
                             </Link>
                             <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownProfile">
                                 <li><Link className="dropdown-item" to="/adminChangePassword">Change Password</Link></li>
@@ -42,6 +42,15 @@ const AdminNavbar = () => {
                             <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownNews">
                                 <li><Link className="dropdown-item" to="/adminAddNews">Add News</Link></li>
                                 <li><Link className="dropdown-item" to="/adminViewAllNews">View All News</Link></li>
+                            </ul>
+                        </li>
+                        <li className="nav-item dropdown">
+                            <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdownClubs" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{ color: '#fff' }}>
+                                <FontAwesomeIcon icon={faUsers} className="me-2 text-info" /> {/* Added icon for clubs */}
+                                Club Management
+                            </Link>
+                            <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownClubs">
+                                <li><Link className="dropdown-item" to="/adminViewAllClubs">View All Clubs</Link></li> {/* Added new dropdown item for clubs */}
                             </ul>
                         </li>
                         <li className="nav-item">
