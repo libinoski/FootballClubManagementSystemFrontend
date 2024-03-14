@@ -83,12 +83,12 @@ const ClubViewOneNews = () => {
                     {newsDetails ? (
                         <div className="row g-0">
                             <div className="col-md-6">
-                                <div style={{ maxHeight: '400px', overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                <div style={{ overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                     <img 
                                         src={newsDetails.footballNewsImage} 
                                         className="img-fluid rounded-end" 
                                         alt="News" 
-                                        style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} 
+                                        style={{ objectFit: 'contain' }} 
                                     />
                                 </div>
                             </div>
@@ -109,6 +109,7 @@ const ClubViewOneNews = () => {
     </div>
     <CommonFooter />
 </div>
+
 
     );
 };
