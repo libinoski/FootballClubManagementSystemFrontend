@@ -57,6 +57,8 @@ import ClubViewOneLeaveRequest from './components/Club/ClubViewOneLeaveRequest';
 import PlayerViewAllApprovedLeaveRequests from './components/Player/PlayerViewAllApprovedLeaveRequests';
 import ClubViewAllSuspendedPlayers from './components/Club/ClubViewAllSuspendedPlayers';
 import ClubViewOneSuspendedPlayer from './components/Club/ClubViewOneSuspendedPlayer';
+import ClubChangePassword from './components/Club/ClubChangePassword';
+import PlayerChangePassword from './components/Player/PlayerChangePassword';
 
 
 
@@ -109,6 +111,7 @@ function App() {
         <Route path='/clubViewOneLeaveRequest' element={<ClubViewOneLeaveRequest/>} />
         <Route path='/clubViewAllSuspendedPlayers' element={<ClubViewAllSuspendedPlayers/>} />
         <Route path='/clubViewOneSuspendedPlayer' element={<ClubViewOneSuspendedPlayer/>} />
+        <Route path='/clubChangePassword' element={<ClubChangePassword/>} />
 
 
         <Route path='/playerRegistration' element={<PlayerRegistration />} />
@@ -126,6 +129,7 @@ function App() {
         <Route path='/playerViewAllNotifications' element={<PlayerViewAllNotifications />} />
         <Route path='/playerViewOneNotification' element={<PlayerViewOneNotification />} />
         <Route path='/playerViewAllApprovedLeaveRequests' element={<PlayerViewAllApprovedLeaveRequests />} />
+        <Route path='/playerChangePassword' element={<PlayerChangePassword />} />
 
         
 

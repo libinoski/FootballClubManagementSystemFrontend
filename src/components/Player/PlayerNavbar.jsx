@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faNewspaper, faFutbol, faChartLine, faBuilding, faBell, faEnvelopeOpenText, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faNewspaper, faFutbol, faChartLine, faBuilding, faBell, faEnvelopeOpenText, faSignOutAlt, faKey } from '@fortawesome/free-solid-svg-icons';
 
 const PlayerNavbar = () => {
     return (
@@ -32,6 +32,10 @@ const PlayerNavbar = () => {
                         </Link>
                         <Link className="nav-link text-white" to="/playerViewAllApprovedLeaveRequests">
                             <FontAwesomeIcon icon={faEnvelopeOpenText} className="me-2" />Leave Requests
+                        </Link>
+                        {/* Change Password Link */}
+                        <Link className="nav-link text-white" to="/playerChangePassword">
+                            <FontAwesomeIcon icon={faKey} className="me-2" />Change Password
                         </Link>
                         {/* Logout Link */}
                         <Link className="nav-link text-white" to="/">
