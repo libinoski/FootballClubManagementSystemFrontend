@@ -71,56 +71,79 @@ const PlayerViewAllNotifications = () => {
 
     return (
 
-        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-            <PlayerNavbar />
-            <div style={{ flex: '1', background: 'linear-gradient(to right, #000000, #000000)', color: '#fff', paddingTop: '20px', paddingBottom: '20px' }}>
-                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-12">
-                                {isLoading ? (
-                                    <div className="d-flex justify-content-center p-5">
-                                        <div className="spinner-border text-primary" role="status">
-                                            <span className="visually-hidden">Loading...</span>
-                                        </div>
-                                    </div>
-                                ) : notifications.length > 0 ? (
-                                    <ul className="list-group list-group-flush">
-                                        {notifications.map((notification, index) => (
-                                            <li
-                                                key={index}
-                                                className="list-group-item mb-3 shadow-sm border border-primary"
-                                                style={{
-                                                    borderRadius: '1rem',
-                                                    background: 'white', // Change background color to white
-                                                    backdropFilter: 'blur(5px)',
-                                                    cursor: 'pointer'
-                                                }}
-                                                onClick={() => handleViewNotification(notification.notificationId)}
-                                            >
-                                                <div className="d-flex align-items-center">
-                                                    <div className="flex-grow-1" style={{ overflow: 'hidden' }}>
-                                                        <p className="mb-0 fw-bold" style={{ fontSize: '1rem', color: '#000', wordBreak: 'break-word', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}>
-                                                            {notification.message}
-                                                        </p>
-                                                        <p className="mb-0 text-muted" style={{ fontSize: '0.8rem' }}>
-                                                            <span style={{ color: 'red' }}>{formatDate(notification.sendDate)}</span> {/* Here, use formatDate */}
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                ) : (
-                                    <p className="text-center mt-4">No notifications found.</p>
-                                )}
-                            </div>
-                        </div>
-                    </div>
+<div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+  <PlayerNavbar />
+  <div style={{
+    flex: '1',
+    background: 'linear-gradient(to right, #000000, #000000)', // Updated as per your request
+    color: '#fff',
+    paddingTop: '20px',
+    paddingBottom: '20px'
+  }}>
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100%'
+    }}>
+      <div className="container">
+        <div className="row">
+          <div className="col-12">
+            {isLoading ? (
+              <div className="d-flex justify-content-center p-5">
+                <div className="spinner-border text-primary" role="status">
+                  <span className="visually-hidden">Loading...</span>
                 </div>
-            </div>
-            <CommonFooter />
+              </div>
+            ) : notifications.length > 0 ? (
+              <ul className="list-group list-group-flush">
+                {notifications.map((notification, index) => (
+                  <li
+                    key={index}
+                    className="list-group-item mb-3 shadow-sm"
+                    style={{
+                      borderRadius: '1rem',
+                      background: 'linear-gradient(to right, #f0f9ff, #cbebff)', // Attractive background
+                      cursor: 'pointer',
+                      border: '2px solid #007bff', // Blue border
+                      backdropFilter: 'blur(5px)',
+                      transition: 'transform 0.2s', // Smooth transition for hover effect
+                    }}
+                    onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.02)'} // Hover effect: scale up
+                    onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'} // Hover effect: scale down to original
+                    onClick={() => handleViewNotification(notification.notificationId)}
+                  >
+                    <div className="d-flex align-items-center">
+                      <div className="flex-grow-1" style={{ overflow: 'hidden' }}>
+                        <p className="mb-0 fw-bold" style={{
+                          fontSize: '1rem',
+                          color: '#000', // More readable text color
+                          wordBreak: 'break-word',
+                          whiteSpace: 'nowrap',
+                          textOverflow: 'ellipsis'
+                        }}>
+                          {notification.message}
+                        </p>
+                        <p className="mb-0 text-muted" style={{ fontSize: '0.8rem' }}>
+                          <span style={{ color: 'red' }}>{formatDate(notification.sendDate)}</span>
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="text-center mt-4">No notifications found.</p>
+            )}
+          </div>
         </div>
+      </div>
+    </div>
+  </div>
+  <CommonFooter />
+</div>
+
+
 
     );
 };

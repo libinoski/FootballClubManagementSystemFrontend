@@ -59,12 +59,10 @@ const AdminViewProfile = () => {
     }, [navigate]);
 
     return (
-
-
-        <div style={{ background: 'linear-gradient(to right, #000000, #000000)', color: '#fff', display: 'flex', flexDirection: 'column', minHeight: '100vh', paddingBottom: '80px' }}>
-            <div style={{ position: 'fixed', top: '0', left: '0', width: '100%' }}>
-                <AdminNavbar />
-            </div>
+<div style={{ background: 'linear-gradient(to right, #000000, #000000)', color: '#fff', display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+    <AdminNavbar />
+    <div className="container-fluid py-4" style={{ minHeight: '100vh', position: 'relative' }}>
+        <div className="container" style={{ maxWidth: '100%', padding: '0 15px', overflowY: 'auto', maxHeight: 'calc(100% - 100px)' }}>
             <div className="row justify-content-center align-items-center" style={{ marginTop: '80px', minHeight: 'calc(100vh - 160px)' }}>
                 <div className="col-12 col-md-10 col-lg-8">
                     <div className="card shadow-lg mb-5 bg-transparent border-0 rounded" style={{ borderRadius: '15px', overflow: 'hidden', backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)', color: '#fff' }}>
@@ -104,11 +102,10 @@ const AdminViewProfile = () => {
                     </div>
                 </div>
             </div>
-            <div style={{ position: 'fixed', bottom: '0', left: '0', width: '100%' }}>
-                <CommonFooter />
-            </div>
         </div>
-
+    </div>
+    <CommonFooter />
+</div>
 
     );
 };

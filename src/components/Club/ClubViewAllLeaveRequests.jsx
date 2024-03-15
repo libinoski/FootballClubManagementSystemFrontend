@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import ClubNavbar from './ClubNabvar';
 import CommonFooter from '../Common/CommonFooter';
 
@@ -36,10 +35,10 @@ const ClubViewAllLeaveRequests = () => {
                         case 401:
                         case 403:
                             alert(data.message || 'Unauthorized access. Please login again.');
-                            navigate('/clubLogin');
+                            // Redirect to login page
                             break;
                         case 422:
-                            alert(data.error || 'Club not found.');
+                            alert(data.message || 'No leave requests found.');
                             break;
                         case 500:
                             alert(data.message || 'Internal server error. Please try again later.');
@@ -57,7 +56,7 @@ const ClubViewAllLeaveRequests = () => {
         };
 
         fetchLeaveRequests();
-    }, [navigate]);
+    }, []);
 
     const handleViewLeaveRequest = (leaveRequestId) => {
         sessionStorage.setItem('leaveRequestId', leaveRequestId);
@@ -65,36 +64,73 @@ const ClubViewAllLeaveRequests = () => {
     };
 
     return (
-        <div style={{ background: 'linear-gradient(to right, #000000, #000000)', color: '#fff', display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
             <ClubNavbar />
-            <div className="container-fluid py-4" style={{ minHeight: '100vh', position: 'relative' }}>
-                <div className="container" style={{ maxWidth: '100%', padding: '0 15px', overflowY: 'auto', maxHeight: 'calc(100% - 100px)' }}>
-                    {isLoading ? (
-                        <div className="d-flex justify-content-center">
-                            <div className="spinner-border" role="status">
-                                <span className="visually-hidden">Loading...</span>
-                            </div>
-                        </div>
-                    ) : (
-                        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
-                            {leaveRequests.length > 0 ? (
-                                leaveRequests.map((request, index) => (
-                                    <div className="col" key={index} onClick={() => handleViewLeaveRequest(request.leaveRequestId)} style={{ cursor: 'pointer' }}>
-                                        <div className="card h-100 border-0" style={{ background: 'rgba(255, 255, 255, 0.2)', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }}>
-                                            <div className="card-body text-center" style={{ padding: '20px' }}>
-                                                <h5 className="card-title mb-4" style={{ background: 'rgba(255, 255, 255, 0.5)', borderRadius: '5px', padding: '10px', color: '#000', backdropFilter: 'blur(5px)', fontWeight: 'bold' }}>{request.playerName}</h5>
-                                                <p className="card-text text-white fw-bold mb-4">Leave Type: {request.leaveType}</p>
-                                                <p className="card-text text-white fw-bold mb-4">Requested On: {request.requestedDate}</p>
-                                                <p className="card-text text-white fw-bold">Status: {request.status}</p>
-                                            </div>
+            <div style={{
+                flex: '1',
+                background: 'linear-gradient(to right, #000000, #000000)',
+                color: '#fff',
+                paddingTop: '20px',
+                paddingBottom: '20px'
+            }}>
+                <div style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    height: '100%'
+                }}>
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-12">
+                                {isLoading ? (
+                                    <div className="d-flex justify-content-center p-5">
+                                        <div className="spinner-border text-primary" role="status">
+                                            <span className="visually-hidden">Loading...</span>
                                         </div>
                                     </div>
-                                ))
-                            ) : (
-                                <p className="text-center w-100">No leave requests available.</p>
-                            )}
+                                ) : leaveRequests.length > 0 ? (
+                                    <ul className="list-group list-group-flush">
+                                        {leaveRequests.map((request, index) => (
+                                            <li
+                                                key={index}
+                                                className="list-group-item mb-3 shadow-sm"
+                                                style={{
+                                                    borderRadius: '1rem',
+                                                    background: 'linear-gradient(to right, #f0f9ff, #cbebff)',
+                                                    cursor: 'pointer',
+                                                    border: '2px solid #007bff',
+                                                    backdropFilter: 'blur(5px)',
+                                                    transition: 'transform 0.2s',
+                                                }}
+                                                onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.02)'}
+                                                onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+                                                onClick={() => handleViewLeaveRequest(request.leaveRequestId)}
+                                            >
+                                                <div className="d-flex align-items-center">
+                                                    <div className="flex-grow-1" style={{ overflow: 'hidden' }}>
+                                                        <p className="mb-0 fw-bold" style={{
+                                                            fontSize: '1rem',
+                                                            color: '#000',
+                                                            wordBreak: 'break-word',
+                                                            whiteSpace: 'nowrap',
+                                                            textOverflow: 'ellipsis'
+                                                        }}>
+                                                            {request.playerName} - {request.message}
+                                                        </p>
+                                                        <p className="mb-0 text-muted" style={{ fontSize: '0.8rem' }}>
+                                                            {request.sendDate}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                ) : (
+                                    <p className="text-center mt-4">No leave requests found.</p>
+                                )}
+                            </div>
                         </div>
-                    )}
+                    </div>
                 </div>
             </div>
             <CommonFooter />

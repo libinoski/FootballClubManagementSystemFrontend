@@ -46,13 +46,17 @@ import PlayerViewAllMatches from './components/Player/PlayerViewAllMatches';
 import ClubViewAllMatchPoints from './components/Club/ClubViewAllMatchPoints';
 import PlayerViewAllMatchPoints from './components/Player/PlayerViewAllMatchPoints';
 import PlayerSendLeaveRequestToClub from './components/Player/PlayerSendLeaveRequestToClub';
-import ClubViewAllLeaveRequests from './components/Club/ClubViewAllLeaveRequests';
 import AdminViewAllClubs from './components/Admin/AdminViewAllClubs';
 import PlayerViewAllClubs from './components/Player/PlayerViewAllClubs';
 import ClubViewAllClubs from './components/Club/ClubViewAllClubs';
 import PlayerViewAllNotifications from './components/Player/PlayerViewAllNotifications';
 import PlayerViewOneNotification from './components/Player/PlayerViewOneNotification';
 import PlayerViewOneMatch from './components/Player/PlayerViewOneMatch';
+import ClubViewAllLeaveRequests from './components/Club/ClubViewAllLeaveRequests';
+import ClubViewOneLeaveRequest from './components/Club/ClubViewOneLeaveRequest';
+import PlayerViewAllApprovedLeaveRequests from './components/Player/PlayerViewAllApprovedLeaveRequests';
+import ClubViewAllSuspendedPlayers from './components/Club/ClubViewAllSuspendedPlayers';
+import ClubViewOneSuspendedPlayer from './components/Club/ClubViewOneSuspendedPlayer';
 
 
 
@@ -100,8 +104,11 @@ function App() {
         <Route path='/clubViewAllMatches' element={<ClubViewAllMatches/>} />
         <Route path='/clubViewOneMatch' element={<ClubViewOneMatch/>} />
         <Route path='/clubViewAllMatchPoints' element={<ClubViewAllMatchPoints/>} />
-        <Route path='/clubViewAllLeaveRequests' element={<ClubViewAllLeaveRequests/>} />
         <Route path='/ClubViewAllClubs' element={<ClubViewAllClubs/>} />
+        <Route path='/clubViewAllLeaveRequests' element={<ClubViewAllLeaveRequests/>} />
+        <Route path='/clubViewOneLeaveRequest' element={<ClubViewOneLeaveRequest/>} />
+        <Route path='/clubViewAllSuspendedPlayers' element={<ClubViewAllSuspendedPlayers/>} />
+        <Route path='/clubViewOneSuspendedPlayer' element={<ClubViewOneSuspendedPlayer/>} />
 
 
         <Route path='/playerRegistration' element={<PlayerRegistration />} />
@@ -118,6 +125,7 @@ function App() {
         <Route path='/playerViewAllClubs' element={<PlayerViewAllClubs />} />
         <Route path='/playerViewAllNotifications' element={<PlayerViewAllNotifications />} />
         <Route path='/playerViewOneNotification' element={<PlayerViewOneNotification />} />
+        <Route path='/playerViewAllApprovedLeaveRequests' element={<PlayerViewAllApprovedLeaveRequests />} />
 
         
 

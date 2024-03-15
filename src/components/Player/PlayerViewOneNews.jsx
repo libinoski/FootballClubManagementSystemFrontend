@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import PlayerNavbar from './PlayerNavbar';
 import CommonFooter from '../Common/CommonFooter';
 
-
 const PlayerViewOneNews = () => {
     const navigate = useNavigate();
     const [newsDetails, setNewsDetails] = useState(null);
@@ -27,7 +26,7 @@ const PlayerViewOneNews = () => {
                 const playerId = sessionStorage.getItem('playerId');
                 const footballNewsId = sessionStorage.getItem('footballNewsId');
                 const response = await axios.post(
-                    'http://localhost:4040/api/Player/PlayerViewOneNews',
+                    'http://localhost:4040/api/player/playerViewOneNews',
                     { playerId, footballNewsId },
                     {
                         headers: {
@@ -68,48 +67,44 @@ const PlayerViewOneNews = () => {
         fetchNewsDetails();
     }, [navigate]);
 
-
-
     return (
-<div style={{ background: 'linear-gradient(to right, #000000, #000000)', color: '#fff', minHeight: '100vh' }}>
-    <PlayerNavbar />
-    <div className="container-fluid d-flex justify-content-center align-items-center" style={{ paddingTop: '56px', paddingBottom: '80px', minHeight: '100vh' }}>
-        <div className="col-lg-8">
-            {isLoading ? (
-                <p className="text-center">Loading news details...</p>
-            ) : (
-                <div className="card" style={{ borderRadius: '10px', background: 'rgba(255, 255, 255, 0.2)', backdropFilter: 'blur(10px)', border: '1px solid rgba(255, 255, 255, 0.125)', color: '#fff' }}>
-                    {newsDetails ? (
-                        <div className="row g-0">
-                            <div className="col-md-6">
-                                <div style={{ maxHeight: '400px', overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                    <img 
-                                        src={newsDetails.footballNewsImage} 
-                                        className="img-fluid rounded-end" 
-                                        alt="News" 
-                                        style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} 
-                                    />
-                                </div>
-                            </div>
-                            <div className="col-md-6 d-flex flex-column justify-content-between">
-                                <div className="card-body">
-                                    <h5 className="card-title text-center mb-4" style={{ fontSize: '24px', fontWeight: 'bold' }}>{newsDetails.footballNewsTitle}</h5>
-                                    <p className="card-text" style={{ fontSize: '18px', lineHeight: '1.6' }}>{newsDetails.footballNewsContent}</p>
-                                    <p className="card-text" style={{ backgroundColor: 'yellow', padding: '5px', borderRadius: '5px', color: '#333' }}>Published on: {formatDate(newsDetails.addedDate)}</p>
-                                </div>
-                              
-                            </div>
-                        </div>
+        <div style={{ background: 'linear-gradient(to right, #000000, #000000)', color: '#fff', minHeight: '100vh' }}>
+            <PlayerNavbar />
+            <div className="container-fluid d-flex justify-content-center align-items-center" style={{ paddingTop: '56px', paddingBottom: '80px', minHeight: '100vh' }}>
+                <div className="col-lg-8">
+                    {isLoading ? (
+                        <p className="text-center">Loading news details...</p>
                     ) : (
-                        <p className="text-center">No news details found.</p>
+                        <div className="card" style={{ borderRadius: '10px', background: 'rgba(255, 255, 255, 0.2)', backdropFilter: 'blur(10px)', border: '1px solid rgba(255, 255, 255, 0.125)', color: '#fff' }}>
+                            {newsDetails ? (
+                                <div className="row g-0">
+                                    <div className="col-md-6">
+                                        <div style={{ overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                            <img 
+                                                src={newsDetails.footballNewsImage} 
+                                                className="img-fluid rounded-end" 
+                                                alt="News" 
+                                                style={{ objectFit: 'contain' }} 
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="col-md-6 d-flex flex-column justify-content-between">
+                                        <div className="card-body">
+                                            <h5 className="card-title text-center mb-4" style={{ fontSize: '24px', fontWeight: 'bold' }}>{newsDetails.footballNewsTitle}</h5>
+                                            <p className="card-text" style={{ fontSize: '18px', lineHeight: '1.6' }}>{newsDetails.footballNewsContent}</p>
+                                            <p className="card-text" style={{ backgroundColor: 'yellow', padding: '5px', borderRadius: '5px', color: '#333' }}>Published on: {formatDate(newsDetails.addedDate)}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            ) : (
+                                <p className="text-center">No news details found.</p>
+                            )}
+                        </div>
                     )}
                 </div>
-            )}
+            </div>
+            <CommonFooter />
         </div>
-    </div>
-    <CommonFooter />
-</div>
-
     );
 };
 

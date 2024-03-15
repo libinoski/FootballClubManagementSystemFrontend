@@ -1,28 +1,34 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUsers, faGamepad, faNewspaper, faSignOutAlt, faKey, faBuilding } from '@fortawesome/free-solid-svg-icons'; // Added faBuilding to the imports
+import { faUsers, faGamepad, faNewspaper, faSignOutAlt, faKey, faBuilding, faChartLine } from '@fortawesome/free-solid-svg-icons';
 
 const ClubNavbar = () => {
     return (
-        <nav className="navbar navbar-expand-lg navbar-light" style={{ borderBottom: '1px solid #e0e0e0', background: 'linear-gradient(120deg, #303030, #212121)' }}>
+        <nav className="navbar navbar-expand-lg navbar-dark" style={{ background: 'linear-gradient(120deg, #303030, #212121)' }}>
             <div className="container-fluid">
-                <Link className="navbar-brand" to="/" style={{ fontSize: '1.2rem', color: '#fff' }}>
-                    ClubManager
-                </Link>
+                <Link className="navbar-brand" to="/" style={{ color: '#fff' }}>
+                FootPro                </Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div className="navbar-nav ms-auto">
-                        <Link className="nav-link" to="/clubViewAllNews" style={{ color: '#fff' }}>
-                            <FontAwesomeIcon icon={faNewspaper} className="me-2 text-success" />
-                            View All News
+                        <Link className="nav-link text-white" to="/clubViewAllNews">
+                            <FontAwesomeIcon icon={faNewspaper} className="me-2" />View All News
+                        </Link>
+                        <Link className="nav-link text-white" to="/clubViewAllMatches">
+                            <FontAwesomeIcon icon={faGamepad} className="me-2" />View All Matches
+                        </Link>
+                        <Link className="nav-link text-white" to="/clubViewAllMatchPoints">
+                            <FontAwesomeIcon icon={faChartLine} className="me-2" />View All Match Points
+                        </Link>
+                        <Link className="nav-link text-white" to="/clubViewAllClubs">
+                            <FontAwesomeIcon icon={faBuilding} className="me-2" />View All Clubs
                         </Link>
                         <div className="nav-item dropdown">
-                            <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdownPlayerManagement" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{ color: '#fff' }}>
-                                <FontAwesomeIcon icon={faUsers} className="me-2 text-info" />
-                                Player Management
+                            <Link className="nav-link dropdown-toggle text-white" to="#" id="navbarDropdownPlayerManagement" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <FontAwesomeIcon icon={faUsers} className="me-2" />Player Management
                             </Link>
                             <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownPlayerManagement">
                                 <li><Link className="dropdown-item" to="/clubViewAllPlayers">View All Players</Link></li>
@@ -31,30 +37,11 @@ const ClubNavbar = () => {
                                 <li><Link className="dropdown-item" to="/clubViewAllLeaveRequests">View All Leave Requests</Link></li>
                             </ul>
                         </div>
-                        <div className="nav-item dropdown">
-                            <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdownMatchManagement" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{ color: '#fff' }}>
-                                <FontAwesomeIcon icon={faGamepad} className="me-2 text-warning" />
-                                Match Management
-                            </Link>
-                            <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMatchManagement">
-                                <li><Link className="dropdown-item" to="/clubViewAllMatches">View All Matches</Link></li>
-                                <li><Link className="dropdown-item" to="/clubViewAllMatchPoints">View All Match Points</Link></li>
-                            </ul>
-                        </div>
-                        {/* Add the new link */}
-                        <Link className="nav-link" to="/clubViewAllClubs" style={{ color: '#fff' }}>
-                            <FontAwesomeIcon icon={faBuilding} className="me-2 text-primary" />
-                            View All Clubs
+                        <Link className="nav-link text-white" to="/clubChangePassword">
+                            <FontAwesomeIcon icon={faKey} className="me-2" />Change Password
                         </Link>
-                        {/* Move password change link outside of the dropdown */}
-                        <Link className="nav-link" to="/clubChangePassword" style={{ color: '#fff' }}>
-                            <FontAwesomeIcon icon={faKey} className="me-2 text-success" />
-                            Change Password
-                        </Link>
-                        {/* Add logout link */}
-                        <Link className="nav-link" to="/" style={{ color: '#fff' }}>
-                            <FontAwesomeIcon icon={faSignOutAlt} className="me-2 text-danger" />
-                            Logout
+                        <Link className="nav-link text-white" to="/">
+                            <FontAwesomeIcon icon={faSignOutAlt} className="me-2" />Logout
                         </Link>
                     </div>
                 </div>

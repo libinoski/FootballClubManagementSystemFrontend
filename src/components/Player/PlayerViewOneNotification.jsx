@@ -58,37 +58,49 @@ const PlayerViewOneNotification = () => {
     }, []);
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-            <PlayerNavbar />
-            <div style={{ flex: '1', background: 'linear-gradient(to right, #000000, #000000)', color: '#fff', paddingTop: '20px', paddingBottom: '20px' }}>
-                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-                    <div className="container">
-                        <div className="row">
-                            {isLoading ? (
-                                <div className="d-flex justify-content-center mt-5">
-                                    <div className="spinner-border text-light" role="status">
-                                        <span className="visually-hidden">Loading...</span>
-                                    </div>
-                                </div>
-                            ) : notification ? (
-                                <div className="card mb-3 shadow-sm border-primary">
-                                    <div className="card-body">
-                                        <h5 className="card-title fw-bold text-primary mb-3">Notification Details:</h5>
-                                        <p className="card-text mb-0">{notification.message}</p>
-                                        <p className="card-text mt-2">
-                                            <small className="text-muted">Date: {new Date(notification.sendDate).toLocaleString()}</small>
-                                        </p>
-                                    </div>
-                                </div>
-                            ) : (
-                                <p className="text-center mt-4">No notification found.</p>
-                            )}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <CommonFooter />
+<div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+  <PlayerNavbar />
+  <div style={{
+    flex: '1',
+    background: 'linear-gradient(to right, #000000, #000000)',
+    color: '#fff',
+    paddingTop: '20px',
+    paddingBottom: '20px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  }}>
+    {isLoading ? (
+      <div className="d-flex justify-content-center mt-5">
+        <div className="spinner-border text-light" role="status">
+          <span className="visually-hidden">Loading...</span>
         </div>
+      </div>
+    ) : notification ? (
+      <div className="card mb-3 shadow-sm border-primary" style={{
+        width: '300px', // Square shape requires equal width and height
+        height: '300px',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        background: '#ffffff',
+        color: '#000'
+      }}>
+        <div className="card-body" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+          <h5 className="card-title fw-bold text-primary mb-3">Notification Details:</h5>
+          <p className="card-text mb-0" style={{ textAlign: 'center' }}>{notification.message}</p>
+          <p className="card-text mt-2" style={{ textAlign: 'center' }}>
+            <small className="text-muted">Date: {new Date(notification.sendDate).toLocaleString()}</small>
+          </p>
+        </div>
+      </div>
+    ) : (
+      <p className="text-center mt-4">No notification found.</p>
+    )}
+  </div>
+  <CommonFooter />
+</div>
     );
 };
 
