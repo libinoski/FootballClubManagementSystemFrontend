@@ -67,44 +67,59 @@ const ClubViewAllPlayers = () => {
     };
 
     return (
-<div style={{ background: 'linear-gradient(to right, #000000, #000000)', color: '#fff', minHeight: '100vh' }}>
-            <ClubNavbar />
-            <div className="flex-grow-1 d-flex align-items-center justify-content-center" style={{ backgroundColor: '#f8f9fa', padding: '70px 0' }}>
-                <div className="container">
-                    {isLoading ? (
-                        <div className="text-center" style={{ minHeight: '300px' }}>
-                            <div className="spinner-border text-primary" role="status">
-                                <span className="visually-hidden">Loading...</span>
-                            </div>
-                        </div>
-                    ) : players.length > 0 ? (
-                        <div className="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
-                            {players.map((player, index) => (
-                                <div key={index} className="col">
-                                    <div className="card shadow h-100" onClick={() => handleViewDetails(player.playerId)} style={{ cursor: 'pointer' }}>
-                                        <div className="card-body">
-                                            <img
-                                                src={player.playerImage}
-                                                alt="Player Avatar"
-                                                className="img-fluid rounded-circle mb-3"
-                                                style={{ width: '100px', height: '100px', objectFit: 'cover' }}
-                                            />
-                                            <h5 className="card-title">{player.playerName}</h5>
-                                            <p className="card-text"><strong>Email:</strong> {player.playerEmail}</p>
-                                            <p className="card-text"><strong>Phone:</strong> {player.playerMobile}</p>
-                                            <p className="card-text"><strong>Position:</strong> {player.playerPosition}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    ) : (
-                        <div className="text-center mt-4 alert alert-warning">No players available.</div>
-                    )}
+<div>
+    <ClubNavbar />
+    <div style={{ background: 'linear-gradient(to right, #000000, #000000)', color: '#fff', minHeight: '100vh', paddingTop: '70px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        {isLoading ? (
+            <div className="text-center" style={{ minHeight: '300px' }}>
+                <div className="spinner-border text-primary" role="status">
+                    <span className="visually-hidden">Loading...</span>
                 </div>
             </div>
-            <CommonFooter />
-        </div>
+        ) : (
+            players.length > 0 ? (
+                <div className="card-container" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '20px' }}>
+                    {players.map((player, index) => (
+                        <div key={index} className="card shadow h-100 bg-transparent" onClick={() => handleViewDetails(player.playerId)} 
+                            style={{ 
+                                cursor: 'pointer', 
+                                backdropFilter: 'blur(10px)', 
+                                backgroundColor: 'rgba(255, 255, 255, 0.1)', 
+                                transition: 'all 0.3s ease-in-out',
+                                borderRadius: '10px',
+                                flex: '1 1 300px', // Adjust the card width as needed
+                                maxWidth: '300px',
+                                border: '1px solid #fff'
+                            }}
+                            onMouseOver={(e) => {
+                                e.currentTarget.style.transform = 'scale(1.05)';
+                            }}
+                            onMouseOut={(e) => {
+                                e.currentTarget.style.transform = 'scale(1)';
+                            }}>
+                            <div className="card-body" style={{ color: '#fff' }}>
+                                <img
+                                    src={player.playerImage}
+                                    alt="Player Avatar"
+                                    className="img-fluid rounded-circle mb-3"
+                                    style={{ width: '100px', height: '100px', objectFit: 'cover', borderRadius: '50%' }}
+                                />
+                                <h5 className="card-title">{player.playerName}</h5>
+                                <p className="card-text"><strong>Email:</strong> {player.playerEmail}</p>
+                                <p className="card-text"><strong>Phone:</strong> {player.playerMobile}</p>
+                                <p className="card-text"><strong>Position:</strong> {player.playerPosition}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            ) : (
+                <div className="text-center mt-4 alert alert-warning">No players available.</div>
+            )
+        )}
+    </div>
+    <CommonFooter />
+</div>
+
     );
 };
 

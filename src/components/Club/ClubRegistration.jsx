@@ -101,161 +101,97 @@ const ClubRegistration = () => {
     };
 
     return (
-<div style={{ background: 'linear-gradient(to right, #000000, #000000)', color: '#fff', minHeight: '100vh' }}>
-            <nav className="navbar navbar-dark" style={{
-                backgroundColor: 'rgba(255, 255, 255, 0.1)', // Light transparent background
-                backdropFilter: 'blur(10px)',
-                WebkitBackdropFilter: 'blur(10px)', // For Safari
-            }}>
-                <div className="container-fluid">
-                    <span className="navbar-brand mb-0 h1 text-light d-block mx-auto font-weight-bold" style={{
-                        fontFamily: 'Arial, sans-serif',
-                    }}>Club Registration</span>
-                    <Link to="/" className="btn btn-outline-light" style={{
-                        position: 'absolute',
-                        right: '10px',
-                        top: '50%',
-                        transform: 'translateY(-50%)',
-                        borderColor: '#ffffff', // Custom border color
-                        color: '#ffffff', // Text color
-                        backgroundColor: 'rgba(255, 255, 255, 0.2)', // Light transparent background
-                        backdropFilter: 'blur(5px)',
-                        WebkitBackdropFilter: 'blur(5px)', // For Safari
-                        boxShadow: '0 0 10px rgba(255, 255, 255, 0.3)', // Soft glow effect
-                        borderRadius: '30px', // Rounded edges
-                        padding: '10px 20px', // Spacing inside the button
-                        fontSize: '1rem', // Text size
-                        transition: 'all 0.3s ease', // Smooth transition for hover effects
-                    }}>
-                        Home
-                    </Link>
-                </div>
-            </nav>
-            <div className="d-flex align-items-center justify-content-center" style={{ minHeight: '100vh' }}>
-                <div className="card shadow-lg p-4" style={{ width: '100%', maxWidth: '500px', backgroundColor: 'rgba(255, 255, 255, 0)' }}>
-                    <div className="card-body">
-                        <form onSubmit={handleSubmit} noValidate>
-                            <div className="mb-3">
-                                <input type="text" className={`form-control ${validationErrors.clubName ? 'is-invalid' : ''}`} name="clubName" value={clubData.clubName} onChange={handleInputChange} placeholder="Club Name *" required />
-                                {validationErrors.clubName && <div className="invalid-feedback">{validationErrors.clubName}</div>}
-                            </div>
-                            <div className="mb-3">
-                                <input type="email" className={`form-control ${validationErrors.clubEmail ? 'is-invalid' : ''}`} name="clubEmail" value={clubData.clubEmail} onChange={handleInputChange} placeholder="Club Email *" required />
-                                {validationErrors.clubEmail && <div className="invalid-feedback">{validationErrors.clubEmail}</div>}
-                            </div>
-                            <div className="mb-3">
-                                <input type="text" className={`form-control ${validationErrors.clubAddress ? 'is-invalid' : ''}`} name="clubAddress" value={clubData.clubAddress} onChange={handleInputChange} placeholder="Club Address *" required />
-                                {validationErrors.clubAddress && <div className="invalid-feedback">{validationErrors.clubAddress}</div>}
-                            </div>
-                            <div className="mb-3">
-                                <input type="text" className={`form-control ${validationErrors.managerName ? 'is-invalid' : ''}`} name="managerName" value={clubData.managerName} onChange={handleInputChange} placeholder="Manager Name *" required />
-                                {validationErrors.managerName && <div className="invalid-feedback">{validationErrors.managerName}</div>}
-                            </div>
-                            <div className="mb-3">
-                                <input type="tel" className={`form-control ${validationErrors.managerMobile ? 'is-invalid' : ''}`} name="managerMobile" value={clubData.managerMobile} onChange={handleInputChange} placeholder="Manager Mobile Number *" required />
-                                {validationErrors.managerMobile && <div className="invalid-feedback">{validationErrors.managerMobile}</div>}
-                            </div>
-                            <div className="mb-3">
-                                <input type="email" className={`form-control ${validationErrors.managerEmail ? 'is-invalid' : ''}`} name="managerEmail" value={clubData.managerEmail} onChange={handleInputChange} placeholder="Manager Email *" required />
-                                {validationErrors.managerEmail && <div className="invalid-feedback">{validationErrors.managerEmail}</div>}
-                            </div>
-                            <div className="mb-3">
-                                <div className="input-group">
-                                    <input type={showPassword ? "text" : "password"} className={`form-control ${validationErrors.clubPassword ? 'is-invalid' : ''}`} name="clubPassword" value={clubData.clubPassword} onChange={handleInputChange} placeholder="Password *" required />
-                                    <button type="button" className="btn btn-outline-secondary" onClick={togglePasswordVisibility}>
-                                        <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
-                                    </button>
-                                </div>
-                                {validationErrors.clubPassword && <div className="invalid-feedback">{validationErrors.clubPassword}</div>}
-                            </div>
-                            <div className="mb-3">
-                                <button
-                                    type="button"
-                                    className="btn btn-outline-primary"
-                                    onClick={() => fileInputRef.current.click()}
-                                    style={{
-                                        backgroundImage: 'linear-gradient(to right, #6a11cb, #2575fc)', // Gradient from pink to orange
-                                        color: 'white', // Text color for visibility
-                                        border: 'none', // Removes the border for a sleek look
-                                        width: '100%', // Sets the button to full container width
-                                        maxWidth: '200px', // Maximum width to control size on larger screens
-                                        height: '50px', // Fixed height for consistency
-                                        display: 'block', // Ensures the button is block-level for width control
-                                        margin: '0 auto' // Centers the button horizontally
-                                    }}>
-                                    Upload Club Image
-                                </button>
-                                <input
-                                    ref={fileInputRef}
-                                    type="file"
-                                    name="clubImage"
-                                    onChange={handleImageUpload}
-                                    accept="image/*"
-                                    style={{ display: 'none' }} />
-                                {clubImageName && <div className="text-muted">{clubImageName}</div>}
-                                {validationErrors.clubImage && <div className="invalid-feedback d-block">{validationErrors.clubImage}</div>}
-                            </div>
-
-                            <div className="mb-3">
-                                <button
-                                    type="button"
-                                    className="btn btn-outline-primary"
-                                    onClick={() => managerFileInputRef.current.click()}
-                                    style={{
-                                        backgroundImage: 'linear-gradient(to right, #6a11cb, #2575fc)', // Gradient from purple to blue
-                                        color: 'white', // Text color for visibility
-                                        border: 'none', // Removes the border for a sleek look
-                                        width: '100%', // Sets the button to full container width
-                                        maxWidth: '200px', // Maximum width to control size on larger screens
-                                        height: '50px', // Fixed height for consistency
-                                        display: 'block', // Ensures the button is block-level for width control
-                                        margin: '0 auto' // Centers the button horizontally
-                                    }}>
-                                    Upload Manager Image
-                                </button>
-                                <input
-                                    ref={managerFileInputRef}
-                                    type="file"
-                                    name="managerImage"
-                                    onChange={handleImageUpload}
-                                    accept="image/*"
-                                    style={{ display: 'none' }} />
-                                {managerImageName && <div className="text-muted">{managerImageName}</div>}
-                                {validationErrors.managerImage && <div className="invalid-feedback d-block">{validationErrors.managerImage}</div>}
-                            </div>
-
-
-                            <div className="d-inline-block">
-    <button 
-        type="submit" 
-        className="btn btn-primary" // Added 'btn-primary' to apply Bootstrap 5 styles
-        disabled={isLoading}
-        style={{
-            background: 'linear-gradient(to right, #4CAF50, #2E8B57)', // Green gradient background
-            color: 'white', // White text color for visibility
-            border: 'none', // No border for a sleek look
-            boxShadow: '0 2px 4px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19)', // Material design-inspired shadow
-            padding: '0.375rem 0.75rem', // Standard Bootstrap padding for buttons
-            borderRadius: '0.25rem', // Standard Bootstrap border-radius for buttons
-            fontWeight: '600', // Slightly bolder font weight for text clarity
-            cursor: 'pointer', // Ensures the cursor changes on hover to indicate it's clickable
-            transition: 'all 0.2s ease-in-out', // Smooth transition for hover effects
-            opacity: isLoading ? 0.7 : 1, // Lower opacity when loading for feedback
-            pointerEvents: isLoading ? 'none' : 'auto', // Disable interactions when loading
-            minWidth: 'fit-content', // Button size adjusts to minimum required width for text
-            maxWidth: '100%', // Button size doesn't exceed its container width
+        <div style={{ background: 'linear-gradient(to right, #000000, #000000)', color: '#fff', minHeight: '100vh' }}>
+        <nav className="navbar navbar-dark" style={{
+            backgroundColor: 'rgba(255, 255, 255, 0.1)',
+            backdropFilter: 'blur(10px)',
+            WebkitBackdropFilter: 'blur(10px)',
         }}>
-        {isLoading ? 'Registering...' : 'Register'}
-    </button>
-</div>
-
-
-                        </form>
-                    </div>
+          <div className="container-fluid">
+            <span className="navbar-brand mb-0 h1 text-light d-block mx-auto">Club Registration</span>
+            <Link to="/" className="btn btn-outline-light" style={{
+                position: 'absolute',
+                right: '10px',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                borderColor: '#ffffff',
+                color: '#ffffff',
+                backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                backdropFilter: 'blur(5px)',
+                WebkitBackdropFilter: 'blur(5px)',
+                boxShadow: '0 0 10px rgba(255, 255, 255, 0.3)',
+                borderRadius: '30px',
+                padding: '10px 20px',
+                fontSize: '1rem',
+                transition: 'all 0.3s ease',
+            }}>Home</Link>
+          </div>
+        </nav>
+        <div className="d-flex align-items-center justify-content-center" style={{ minHeight: '100vh' }}>
+          <div className="card shadow-lg p-4" style={{ width: '100%', maxWidth: '500px', backgroundColor: 'rgba(255, 255, 255, 0.1)', backdropFilter: 'blur(10px)', borderRadius: '15px' }}>
+            <div className="card-body">
+              <form onSubmit={handleSubmit} noValidate>
+                <div className="mb-3">
+                  <input type="text" className="form-control" name="clubName" value={clubData.clubName} onChange={handleInputChange} placeholder="Club Name *" required />
+                  {validationErrors.clubName && <div className="invalid-feedback d-block">{validationErrors.clubName}</div>}
                 </div>
+                <div className="mb-3">
+                  <input type="email" className="form-control" name="clubEmail" value={clubData.clubEmail} onChange={handleInputChange} placeholder="Club Email *" required />
+                  {validationErrors.clubEmail && <div className="invalid-feedback d-block">{validationErrors.clubEmail}</div>}
+                </div>
+                <div className="mb-3">
+                  <input type="text" className="form-control" name="clubAddress" value={clubData.clubAddress} onChange={handleInputChange} placeholder="Club Address *" required />
+                  {validationErrors.clubAddress && <div className="invalid-feedback d-block">{validationErrors.clubAddress}</div>}
+                </div>
+                <div className="mb-3">
+                  <input type="text" className="form-control" name="managerName" value={clubData.managerName} onChange={handleInputChange} placeholder="Manager Name *" required />
+                  {validationErrors.managerName && <div className="invalid-feedback d-block">{validationErrors.managerName}</div>}
+                </div>
+                <div className="mb-3">
+                  <input type="tel" className="form-control" name="managerMobile" value={clubData.managerMobile} onChange={handleInputChange} placeholder="Manager Mobile Number *" required />
+                  {validationErrors.managerMobile && <div className="invalid-feedback d-block">{validationErrors.managerMobile}</div>}
+                </div>
+                <div className="mb-3">
+                  <input type="email" className="form-control" name="managerEmail" value={clubData.managerEmail} onChange={handleInputChange} placeholder="Manager Email *" required />
+                  {validationErrors.managerEmail && <div className="invalid-feedback d-block">{validationErrors.managerEmail}</div>}
+                </div>
+                <div className="mb-3">
+                  <div className="input-group">
+                    <input type={showPassword ? "text" : "password"} className="form-control" name="clubPassword" value={clubData.clubPassword} onChange={handleInputChange} placeholder="Password *" required />
+                    <button type="button" className="btn btn-outline-secondary" onClick={togglePasswordVisibility}>
+                      <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+                    </button>
+                  </div>
+                  {validationErrors.clubPassword && <div className="invalid-feedback d-block">{validationErrors.clubPassword}</div>}
+                </div>
+                <div className="mb-3">
+  <button type="button" className="btn btn-primary" onClick={() => fileInputRef.current.click()}>
+    Upload Club Image
+  </button>
+  <input ref={fileInputRef} type="file" name="clubImage" onChange={handleImageUpload} accept="image/*" style={{ display: 'none' }} />
+  <div className="text-white"> {/* Add text-white class here */}
+    {clubImageName}
+  </div>
+  {validationErrors.clubImage && <div className="invalid-feedback d-block">{validationErrors.clubImage}</div>}
+</div>
+<div className="mb-3">
+  <button type="button" className="btn btn-primary" onClick={() => managerFileInputRef.current.click()}>
+    Upload Manager Image
+  </button>
+  <input ref={managerFileInputRef} type="file" name="managerImage" onChange={handleImageUpload} accept="image/*" style={{ display: 'none' }} />
+  <div className="text-white"> {/* Add text-white class here */}
+    {managerImageName}
+  </div>
+  {validationErrors.managerImage && <div className="invalid-feedback d-block">{validationErrors.managerImage}</div>}
+</div>
+     <button type="submit" className="btn" style={{ backgroundImage: 'linear-gradient(to right, #4CAF50, #2E8B57)', color: 'white', borderRadius: '25px', padding: '10px 30px', transition: 'all 0.3s ease' }}> {isLoading ? 'Registering...' : 'Register'} </button>              </form>
             </div>
-            <CommonFooter />
+          </div>
         </div>
+        <CommonFooter />
+      </div>
+  
+
     );
 };
 

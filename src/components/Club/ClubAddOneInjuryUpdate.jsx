@@ -8,7 +8,7 @@ const ClubAddOneInjuryUpdate = () => {
     const navigate = useNavigate();
     const initialInjuryData = {
         clubId: sessionStorage.getItem('clubId'),
-        playerId: sessionStorage.getItem('playerId'),      
+        playerId: sessionStorage.getItem('playerId'),
         injuryType: '',
         averageRecoveryTime: ''
     };
@@ -31,7 +31,7 @@ const ClubAddOneInjuryUpdate = () => {
         setIsLoading(true);
         try {
             const token = sessionStorage.getItem('token');
-            console.log(injuryData); 
+            console.log(injuryData);
             const response = await axios.post(
                 'http://localhost:4040/api/club/clubAddOneInjuryUpdate',
                 { ...injuryData },
@@ -45,7 +45,7 @@ const ClubAddOneInjuryUpdate = () => {
             if (response.status === 200) {
                 alert('Injury update submitted successfully');
                 resetForm();
-                navigate('/clubDashboard');
+                navigate('/clubViewAllPlayers');
             }
         } catch (error) {
             if (error.response) {
@@ -78,35 +78,52 @@ const ClubAddOneInjuryUpdate = () => {
     };
 
     return (
-        <div style={{ background: 'linear-gradient(to right, #000000, #000000)', color: '#fff', minHeight: '100vh' }}>
+        <div>
             <ClubNavbar />
-            <div className="container-fluid" style={{ paddingTop: '56px', paddingBottom: '80px' }}>
-                <div className="row justify-content-center">
-                    <div className="col-12 col-md-6">
-                        <div className="card bg-transparent" style={{ boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)', transition: '0.3s', borderRadius: '5px' }}>
-                            <div className="card-body">
-                                <form onSubmit={handleSubmit}>
-                                    <div className="mb-3">
-                                        <label htmlFor="injuryType" className="form-label" style={{ color: '#fff' }}>Injury Type</label>
-                                        <input type="text" className={`form-control ${validationErrors.injuryType ? 'is-invalid' : ''}`} id="injuryType" name="injuryType" value={injuryData.injuryType} onChange={handleInputChange} />
-                                        {validationErrors.injuryType && <div className="invalid-feedback">{validationErrors.injuryType}</div>}
-                                    </div>
-                                    <div className="mb-3">
-                                        <label htmlFor="averageRecoveryTime" className="form-label" style={{ color: '#fff' }}>Average Recovery Time</label>
-                                        <input type="text" className={`form-control ${validationErrors.averageRecoveryTime ? 'is-invalid' : ''}`} id="averageRecoveryTime" name="averageRecoveryTime" value={injuryData.averageRecoveryTime} onChange={handleInputChange} />
-                                        {validationErrors.averageRecoveryTime && <div className="invalid-feedback">{validationErrors.averageRecoveryTime}</div>}
-                                    </div>
-                                    <div className="text-center">
-                                        <button type="submit" className="btn btn-primary" disabled={isLoading}>{isLoading ? 'Submitting...' : 'Submit Injury Update'}</button>
-                                    </div>
-                                </form>
-                            </div>
+            <div style={{ background: 'linear-gradient(to right, #000000, #000000)', color: '#fff', minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <div className="container">
+                    <div className="card bg-transparent" style={{ boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)', transition: '0.3s', borderRadius: '5px' }}>
+                        <div className="card-body">
+                            <form onSubmit={handleSubmit}>
+                                <div className="mb-3">
+                                    <label htmlFor="injuryType" className="form-label" style={{ color: '#fff' }}>Injury Type</label>
+                                    <input type="text" className={`form-control ${validationErrors.injuryType ? 'is-invalid' : ''}`} id="injuryType" name="injuryType" value={injuryData.injuryType} onChange={handleInputChange} />
+                                    {validationErrors.injuryType && <div className="invalid-feedback">{validationErrors.injuryType}</div>}
+                                </div>
+                                <div className="mb-3">
+                                    <label htmlFor="averageRecoveryTime" className="form-label" style={{ color: '#fff' }}>Average Recovery Time</label>
+                                    <input type="text" className={`form-control ${validationErrors.averageRecoveryTime ? 'is-invalid' : ''}`} id="averageRecoveryTime" name="averageRecoveryTime" value={injuryData.averageRecoveryTime} onChange={handleInputChange} />
+                                    {validationErrors.averageRecoveryTime && <div className="invalid-feedback">{validationErrors.averageRecoveryTime}</div>}
+                                </div>
+                                <div className="text-center">
+                                    <button
+                                        type="submit"
+                                        className="btn"
+                                        disabled={isLoading}
+                                        style={{
+                                            background: 'linear-gradient(45deg, #ff5858, #f857a6)',
+                                            color: 'white',
+                                            padding: '10px 20px',
+                                            fontSize: '16px',
+                                            borderRadius: '30px',
+                                            border: 'none',
+                                            boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
+                                            transition: 'all 0.3s ease',
+                                            cursor: isLoading ? 'not-allowed' : 'pointer'
+                                        }}
+                                    >
+                                        {isLoading ? 'Submitting...' : 'Submit Injury Update'}
+                                    </button>
+                                </div>
+
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
             <CommonFooter />
         </div>
+
     );
 };
 

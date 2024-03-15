@@ -59,57 +59,53 @@ const AdminViewProfile = () => {
     }, [navigate]);
 
     return (
-
-
-<div style={{ background:'linear-gradient(to right, #000000, #000000)', color: '#fff', display: 'flex', flexDirection: 'column', minHeight: '100vh', paddingBottom: '80px' }}>
-    <div style={{ position: 'fixed', top: '0', left: '0', width: '100%' }}> {/* Navbar */}
-        <AdminNavbar/>
-    </div>
-    <div className="row justify-content-center align-items-center" style={{ marginTop: '80px', minHeight: 'calc(100vh - 160px)' }}>
-        <div className="col-12 col-md-10 col-lg-8">
-            <div className="card shadow-lg mb-5 bg-transparent border-0 rounded" style={{ borderRadius: '15px', overflow: 'hidden', backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)', color: '#fff' }}>
-                {isLoading ? (
-                    <div className="card-body d-flex justify-content-center align-items-center" style={{ minHeight: '300px' }}>
-                        <div className="spinner-border text-primary" role="status">
-                            <span className="visually-hidden">Loading...</span>
-                        </div>
-                    </div>
-                ) : adminProfile ? (
-                    <div className="card-body">
-                        <div className="row g-4 align-items-center">
-                            <div className="col-12 col-md-5 d-flex justify-content-center">
-                                <img
-                                    src={adminProfile.adminImage}
-                                    alt="Admin"
-                                    className="img-thumbnail"
-                                    style={{ width: '250px', height: '250px', objectFit: 'cover', borderRadius: '50%', border: '5px solid #f8f9fa' }}
-                                />
+<div style={{ background: 'linear-gradient(to right, #000000, #000000)', color: '#fff', display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+    <AdminNavbar />
+    <div className="container-fluid py-4" style={{ minHeight: '100vh', position: 'relative' }}>
+        <div className="container" style={{ maxWidth: '100%', padding: '0 15px', overflowY: 'auto', maxHeight: 'calc(100% - 100px)' }}>
+            <div className="row justify-content-center align-items-center" style={{ marginTop: '80px', minHeight: 'calc(100vh - 160px)' }}>
+                <div className="col-12 col-md-10 col-lg-8">
+                    <div className="card shadow-lg mb-5 bg-transparent border-0 rounded" style={{ borderRadius: '15px', overflow: 'hidden', backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)', color: '#fff' }}>
+                        {isLoading ? (
+                            <div className="card-body d-flex justify-content-center align-items-center" style={{ minHeight: '300px' }}>
+                                <div className="spinner-border text-primary" role="status">
+                                    <span className="visually-hidden">Loading...</span>
+                                </div>
                             </div>
-                            <div className="col-12 col-md-7">
-                                <h3 className="mb-3" style={{ color: '#fff', fontWeight: 'bold' }}>Libin</h3>
-                                <p className="mb-2" style={{ color: '#fff', fontWeight: 'bold' }}>{adminProfile.adminEmail}</p>
-                                <p className="mb-2" style={{ color: '#fff', fontWeight: 'bold' }}>{adminProfile.adminMobile}</p>
-                                <p className="mb-2" style={{ color: '#fff', fontWeight: 'bold' }}>{adminProfile.adminAddress}</p>
+                        ) : adminProfile ? (
+                            <div className="card-body">
+                                <div className="row g-4 align-items-center">
+                                    <div className="col-12 col-md-5 d-flex justify-content-center">
+                                        <img
+                                            src={adminProfile.adminImage}
+                                            alt="Admin"
+                                            className="img-thumbnail"
+                                            style={{ width: '250px', height: '250px', objectFit: 'cover', borderRadius: '50%', border: '5px solid #f8f9fa' }}
+                                        />
+                                    </div>
+                                    <div className="col-12 col-md-7">
+                                        <h3 className="mb-3" style={{ color: '#fff', fontWeight: 'bold' }}>{adminProfile.adminName}</h3>
+                                        <p className="mb-2" style={{ color: '#fff', fontWeight: 'bold' }}>{adminProfile.adminEmail}</p>
+                                        <p className="mb-2" style={{ color: '#fff', fontWeight: 'bold' }}>{adminProfile.adminMobile}</p>
+                                        <p className="mb-2" style={{ color: '#fff', fontWeight: 'bold' }}>{adminProfile.adminAddress}</p>
+                                    </div>
+                                </div>
+                                <div className="d-flex justify-content-center gap-3 mt-4">
+                                    <Link to="/adminUpdateProfile" className="btn btn-primary" style={{ padding: '10px 20px', borderRadius: '25px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)' }}>Update Details</Link>
+                                </div>
                             </div>
-                        </div>
-                        <div className="d-flex justify-content-center gap-3 mt-4">
-                            <Link to="/adminUpdateProfile" className="btn btn-primary" style={{ padding: '10px 20px', borderRadius: '25px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)' }}>Update Details</Link>
-                            {/* Add the same button for changing image here */}
-                        </div>
+                        ) : (
+                            <div className="card-body d-flex justify-content-center align-items-center" style={{ minHeight: '300px' }}>
+                                <p>No profile found.</p>
+                            </div>
+                        )}
                     </div>
-                ) : (
-                    <div className="card-body d-flex justify-content-center align-items-center" style={{ minHeight: '300px' }}>
-                        <p>No profile found.</p>
-                    </div>
-                )}
+                </div>
             </div>
         </div>
     </div>
-    <div style={{ position: 'fixed', bottom: '0', left: '0', width: '100%' }}>
-        <CommonFooter />
-    </div>
+    <CommonFooter />
 </div>
-
 
     );
 };
